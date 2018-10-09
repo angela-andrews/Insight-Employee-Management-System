@@ -14,7 +14,12 @@ import SignIn from "./components/Pages/SignIn";
 
 const App = () => (
   <div className="container">
-    <Navbar />
+    <Navbar
+    imageSrc={"images/excite.png"}
+    imageAlt={"Incite Logo"}
+    navLinks={["products", "customers", "company", "signin"]}
+    signIn={true}
+    />
     <Router>
       <div>
         <Switch>
@@ -22,7 +27,7 @@ const App = () => (
           <Route exact path="/products" component= { Products }/>
           <Route exact path="/customers" component= { Customers }/>
           <Route exact path="/company" component= { Company }/>
-          <Route exact path="/signin" component={ SignIn}/>
+          <Route exact path="/sigin" component= { SignIn }/>
         </Switch>
       </div>
     </Router>

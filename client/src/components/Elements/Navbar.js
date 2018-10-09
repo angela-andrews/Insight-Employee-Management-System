@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Navbar = () => (
+const Navbar = ({ imageSrc, imageAlt, navLinks, signIn }) => (
   <nav className="navbar navbar-expand-lg navbar-light">
     <a className="navbar-brand" href="/">
-      <img alt="Incite Logo" src="images/excite.png" />
+      <img alt={imageAlt} src={imageSrc} />
     </a>
     <button 
       className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
@@ -12,18 +12,11 @@ const Navbar = () => (
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a className="nav-link" href="/products">Products</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/customers">Customers</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/company">Company</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/signin">Sign In</a>
-        </li>
+        {navLinks.map(link => {
+          return (<li className="nav-item">
+          <a className="nav-link" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
+        </li>)
+        })}
       </ul>
     </div>
   </nav>
