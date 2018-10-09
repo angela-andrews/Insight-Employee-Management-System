@@ -10,7 +10,7 @@ import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products";
 import Customers from "./components/Pages/Customers";
 import Company from "./components/Pages/Company";
-import SignIn from "./components/Pages/SignIn";
+import Signin from "./components/Pages/Signin";
 
 const App = () => (
   <div className="container">
@@ -27,7 +27,7 @@ const App = () => (
           <Route exact path="/products" component= { Products }/>
           <Route exact path="/customers" component= { Customers }/>
           <Route exact path="/company" component= { Company }/>
-          <Route exact path="/sigin" component= { SignIn }/>
+          <Route exact path="/signin" component= { Signin }/>
         </Switch>
       </div>
     </Router>

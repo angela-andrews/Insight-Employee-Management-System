@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = ({ imageSrc, imageAlt, navLinks, signIn }) => (
+const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
   <nav className="navbar navbar-expand-lg navbar-light">
     <a className="navbar-brand" href="/">
       <img alt={imageAlt} src={imageSrc} />
@@ -12,6 +12,7 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn }) => (
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
+      <li>Hello <b>{signIn ? 'Guest' : `${userName}`}</b></li>
         {navLinks.map(link => {
           return (<li className="nav-item">
           <a className="nav-link" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
