@@ -5,6 +5,7 @@ import Articles from "../Elements/Articles"
 const Home = () => (
   <div>
     <Jumbotron />
+    <hr />
     <div className="row">
       <Articles />
       <Articles />
