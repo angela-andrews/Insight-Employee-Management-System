@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
   <nav className="navbar navbar-expand-lg navbar-light">
     <a className="navbar-brand" href="/">
-      <img alt={imageAlt} src={imageSrc} />
+      <img className="logo-name" alt={imageAlt} src={imageSrc} />
     </a>
     <button 
       className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
