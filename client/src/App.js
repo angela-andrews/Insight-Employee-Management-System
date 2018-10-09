@@ -5,12 +5,12 @@ import {
   Switch
 } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Products from "./components/Products";
-import Customers from "./components/Customers";
-import Company from "./components/Company";
-import SignIn from "./components/SignIn";
+import Navbar from "./components/Elements/Navbar";
+import Home from "./components/Pages/Home";
+import Products from "./components/Pages/Products";
+import Customers from "./components/Pages/Customers";
+import Company from "./components/Pages/Company";
+import SignIn from "./components/Pages/SignIn";
 
 const App = () => (
   <div className="container">
