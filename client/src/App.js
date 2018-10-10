@@ -16,7 +16,7 @@ import Signin from "./components/Pages/Signin";
 const App = () => (
   <div className="container">
     <Navbar
-    imageSrc={"images/excite.png"}
+    imageSrc={"images/insight_name_tr.png"}
     imageAlt={"Incite Logo"}
     navLinks={["products", "customers", "company", "signin"]}
     signIn={true}

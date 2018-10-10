@@ -1,0 +1,12 @@
+html, body {
+  font-family: "Work Sans";
+}
+
+a {
+  color: black;
+}
+
+/* ------- NAVBAR component ------- */
+.logo-name {
+  height: 80px;
+}
