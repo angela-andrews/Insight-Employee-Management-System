@@ -12,7 +12,7 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
-      <li>Hello <b>{signIn ? 'Guest' : `${userName}`}</b></li>
+      <li className="nav-link">Hello <b>{signIn ? 'Guest' : `${userName}`}</b></li>
         {navLinks.map(link => {
           return (<li className="nav-item">
           <a className="nav-link" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>

@@ -3,11 +3,7 @@ import SideMenu from 'react-sidemenu';
 import './Menu.css'
 
 const items = [
-	{label: 'Summary', value: 'summary', icon: '',
-	children: [
-		{label: 'Summary 1', value: 'summary1'},
-		{label: 'Summary 2', value: 'summary2'},
-	]},
+	{label: 'Summary', value: 'summary', icon: '',},
 	{label: 'Work History', value: 'wHistory', icon: '',
 	children: [
 		{label: 'Work History 1', value: 'summary1'},
@@ -37,7 +33,7 @@ const items = [
 class Menu extends Component {
 	render() {
 		return (
-			<div>
+			<div id="yellow">
 				<SideMenu
 				items={items}
 				reverse={false}
