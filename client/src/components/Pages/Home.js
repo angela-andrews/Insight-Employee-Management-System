@@ -12,7 +12,6 @@ const Home = () => (
       signIn={true}
     />
     <Jumbotron />
-    <hr />
     <div className="row">
       <Articles />
       <Articles />

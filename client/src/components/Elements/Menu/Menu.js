@@ -37,6 +37,7 @@ class Menu extends Component {
 				<SideMenu
 				items={items}
 				reverse={false}
+				onMenuItemClick={(value, extras) => window.location.href = 'signin/' + value}
 				/>
 			</div>
 		);
