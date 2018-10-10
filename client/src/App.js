@@ -5,22 +5,15 @@ import {
   Switch
 } from "react-router-dom";
 
-import Navbar from "./components/Elements/Navbar";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products";
 import Customers from "./components/Pages/Customers";
 import Company from "./components/Pages/Company";
-import Signin from "./components/Pages/Signin";
+import Signin from "./components/Pages/SignIn";
 
 
 const App = () => (
-  <div className="container">
-    <Navbar
-    imageSrc={"images/insight_name_tr.png"}
-    imageAlt={"Incite Logo"}
-    navLinks={["products", "customers", "company", "signin"]}
-    signIn={true}
-    />
+  <div>
     <Router>
       <div>
         <Switch>
