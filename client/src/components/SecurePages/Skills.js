@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../Elements/Navbar';
 import Menu from '../Elements/Menu'
 
-const Summary = () => (
+const Skills = () => (
   <div>
     <Navbar
       imageSrc={"../images/mycompany.png"}
@@ -40,4 +40,4 @@ const Summary = () => (
   </div>
 )
 
-export default Summary;
+export default Skills;
