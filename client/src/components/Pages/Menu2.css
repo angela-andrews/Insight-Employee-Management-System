@@ -1,0 +1,12 @@
+/* OUR SIDE MENU */
+.menu-option {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  background-color: rgb(39, 39, 39);
+  color: white;
+}
+
+.menu-option:hover {
+  background-color: rgba(11, 115, 176);
+  border-left: 5px solid rgba(22, 244, 208);
+}
