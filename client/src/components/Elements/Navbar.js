@@ -13,8 +13,8 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
       <li className="nav-link"><b>{signIn ? '' : `Hello ${userName}`}</b></li>
-        {navLinks.map(link => {
-          return (<li className="nav-item">
+        {navLinks.map((link, index) => {
+          return (<li key={index} className="nav-item">
           <a className="nav-link" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
         </li>)
         })}

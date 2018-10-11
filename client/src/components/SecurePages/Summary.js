@@ -1,9 +1,40 @@
 import React from 'react';
+
 import Navbar from '../Elements/Navbar';
 import Menu from '../Elements/Menu'
+import HomeSummary from './SummaryPages/HomeSummary';
+import WorkSummary from './SummaryPages/WorkSummary';
+import PositionSummary from './SummaryPages/PositionSummary';
+import PersonalSummary from './SummaryPages/PersonalSummary';
 
-const Summary = () => (
-  <div>
+class Summary extends React.Component {
+
+  state = {
+    clicked: "home"
+  }
+  
+  handleButton(event) {
+    this.setState({ clicked: event.target.name })
+  }
+
+  handleDisplay() {
+    switch (this.state.clicked) {
+      case "home":
+        return <HomeSummary />;
+      case "work":
+        return <WorkSummary />;
+      case "position":
+        return <PositionSummary />;
+      case "personal":
+        return <PersonalSummary />;
+      default:
+        return <HomeSummary />
+    } 
+  }
+
+  render() {
+    return (
+<div>
     <Navbar
       imageSrc={"../images/mycompany.png"}
       imageAlt={"My Company Logo"}
@@ -17,27 +48,22 @@ const Summary = () => (
           <Menu />
         </div>
         <div className="col-sm-9">
-          <h6>Profile > Education</h6>
+          <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <button type="button" name="home" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Home Address</button>
+            <button type="button" name="work" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Work Address</button>
+            <button type="button" name="position" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Position Summary</button>
+            <button type="button" name="personal" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Personal Summary</button>
+          </div>
+          <h1>Daniel Gross</h1>
           <hr />
-          <div>
-            <h4>Universidad de Buenos Aires</h4>
-            <p>Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-            <p>2002 - 2005</p>
-            <hr />
-          </div>
-          <div>
-            <h4>University of Pennsylvania</h4>
-            <p>Certificate, Full Stack Development</p>
-            <p>2018 - 2018</p>
-            <br />
-            <p>Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</p>
-            <p>Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</p>
-            <hr />
-          </div>
+            {this.handleDisplay()}
         </div>
       </div>
     </div>
   </div>
-)
+    )
+  }
+  
+}
 
 export default Summary;
