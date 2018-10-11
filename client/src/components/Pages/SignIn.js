@@ -18,7 +18,8 @@ const SignIn = () => (
     <div className="col-sm-2">
       <Menu />
     </div>
-
+      <div>
+      </div>
     </div>
   </div>
 
