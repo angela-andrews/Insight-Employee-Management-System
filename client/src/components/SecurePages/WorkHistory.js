@@ -17,21 +17,39 @@ const WorkHistory = () => (
           <Menu />
         </div>
         <div className="col-sm-9">
-          <h6>Profile > Education</h6>
+          <h6>Profile > Work History</h6>
           <hr />
           <div>
-            <h4>Universidad de Buenos Aires</h4>
-            <p>Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-            <p>2002 - 2005</p>
+            <h4>Area Operations Manager</h4>
+            <p>Family Dollar</p>            
+            <p className="text-muted">2013 - Present - 5 yrs</p>
+            <p className="text-muted">Greater Philadelphia Area</p>
+            <ul>
+              <li>Lead multi-unit operational business processes for Fortune 500 company, deliver $45M in annual sales while managing $3M payroll budget for 19 locations throughout Philadelphia, Bucks County, and Montgomery County </li>
+              <li>Analyze operational performance reports and create strategic action plans to achieve year-over-year sales comp growth of +4%</li>
+              <li>Implement marketing/advertising sets and process improvement programs to achieve top 10% of Controllable Profit for company performance </li>
+              <li>Review shrinkage and operating performance standards, recognize trends and apply process improvements to maintain shrink below-designated company standards </li>
+              <li>Coordinate financial and operational analyses and prepare business reports for Store Operations </li>
+              <li>Hire, train and manage 200-member team; facilitate professional development training, team building, and mentorship to lead in significant career progression </li>
+              <li>Lead and coach Performance Mangers in the implementation of company policies and procedures</li>
+            </ul>
             <hr />
           </div>
+
           <div>
-            <h4>University of Pennsylvania</h4>
-            <p>Certificate, Full Stack Development</p>
-            <p>2018 - 2018</p>
-            <br />
-            <p>Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</p>
-            <p>Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</p>
+            <h4>Area Operations Manager</h4>
+            <p>Family Dollar</p>            
+            <p className="text-muted">2013 - Present - 5 yrs</p>
+            <p className="text-muted">Greater Philadelphia Area</p>
+            <ul>
+              <li>Lead multi-unit operational business processes for Fortune 500 company, deliver $45M in annual sales while managing $3M payroll budget for 19 locations throughout Philadelphia, Bucks County, and Montgomery County </li>
+              <li>Analyze operational performance reports and create strategic action plans to achieve year-over-year sales comp growth of +4%</li>
+              <li>Implement marketing/advertising sets and process improvement programs to achieve top 10% of Controllable Profit for company performance </li>
+              <li>Review shrinkage and operating performance standards, recognize trends and apply process improvements to maintain shrink below-designated company standards </li>
+              <li>Coordinate financial and operational analyses and prepare business reports for Store Operations </li>
+              <li>Hire, train and manage 200-member team; facilitate professional development training, team building, and mentorship to lead in significant career progression </li>
+              <li>Lead and coach Performance Mangers in the implementation of company policies and procedures</li>
+            </ul>
             <hr />
           </div>
         </div>
