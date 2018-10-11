@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../Elements/Navbar';
+import Menu2 from "../Pages/Menu2";
 
 const Customers = () => (
   <div>
@@ -11,6 +12,7 @@ const Customers = () => (
     />
     <hr />
     <h1>In the Customers Route</h1>
+    <Menu2 />
   </div>
 );
 

@@ -2,7 +2,14 @@ import React from 'react';
 import Navbar from '../Elements/Navbar';
 import Menu from '../Elements/Menu'
 
-const Skills = () => (
+
+
+const Skills = () => {
+  const styles = {
+    width: '200px'
+  }
+
+return(
   <div>
     <Navbar
       imageSrc={"../images/mycompany.png"}
@@ -17,27 +24,52 @@ const Skills = () => (
           <Menu />
         </div>
         <div className="col-sm-9">
-          <h6>Profile > Education</h6>
+          <h6>Profile > Skills</h6>
           <hr />
-          <div>
-            <h4>Universidad de Buenos Aires</h4>
-            <p>Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-            <p>2002 - 2005</p>
-            <hr />
+          <div className="card-group">
+            <div className="card" style={styles}>
+              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet</p>
+              </div> 
+            </div>
+            <div className="card" style={styles}>
+              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet</p>
+              </div> 
+            </div>
+            <div className="card" style={styles}>
+              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet</p>
+              </div> 
+            </div>
+            <div className="card" style={styles}>
+              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet</p>
+              </div> 
+            </div>
+            <div className="card" style={styles}>
+              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet</p>
+              </div> 
+            </div>
+            
           </div>
-          <div>
-            <h4>University of Pennsylvania</h4>
-            <p>Certificate, Full Stack Development</p>
-            <p>2018 - 2018</p>
-            <br />
-            <p>Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</p>
-            <p>Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</p>
-            <hr />
-          </div>
+
         </div>
       </div>
     </div>
   </div>
 )
+}
 
 export default Skills;
