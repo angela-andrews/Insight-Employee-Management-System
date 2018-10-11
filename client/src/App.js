@@ -10,6 +10,7 @@ import Products from "./components/Pages/Products";
 import Customers from "./components/Pages/Customers";
 import Company from "./components/Pages/Company";
 import Signin from "./components/Pages/SignIn";
+import Summary from "./components/SecurePages/Summary"
 
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path="/customers" component= { Customers }/>
           <Route exact path="/company" component= { Company }/>
           <Route exact path="/signin" component= { Signin }/>
+          <Route exact path="/signin/summary" component= { Summary }/>
         </Switch>
       </div>
     </Router>
