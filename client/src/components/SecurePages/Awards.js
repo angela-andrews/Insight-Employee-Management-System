@@ -17,23 +17,80 @@ const Awards = () => (
           <Menu />
         </div>
         <div className="col-sm-9">
-          <h6>Profile > Education</h6>
+          <h6>Profile > Awards</h6>
           <hr />
-          <div>
-            <h4>Universidad de Buenos Aires</h4>
-            <p>Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-            <p>2002 - 2005</p>
-            <hr />
-          </div>
-          <div>
-            <h4>University of Pennsylvania</h4>
-            <p>Certificate, Full Stack Development</p>
-            <p>2018 - 2018</p>
-            <br />
-            <p>Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</p>
-            <p>Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</p>
-            <hr />
-          </div>
+          <table className="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Gift</th>
+      <th scope="col">Date</th>
+      <th scope="col">Vale / Location</th>
+      <th scope="col">Reason</th>
+      <th scope="col">Given To</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td><img src="../images/movie50.png" alt="movie"></img></td>
+      <td>10/01/18</td>
+      <td>$25 <br /> Regal Movies</td>
+      <td>Top Sales Performance</td>
+      <td>Leanne Graham</td>
+      <td>Not Yet Claimed</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
         </div>
       </div>
     </div>
