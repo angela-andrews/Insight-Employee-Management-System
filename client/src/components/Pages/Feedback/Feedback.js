@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../Elements/Jumbotron";
 
 
-class EmployeeFeedback extends Component {
+class Feedback extends Component {
 
     state = {
         feedback: [],
@@ -162,4 +162,4 @@ class EmployeeFeedback extends Component {
 }
 }
 
-export default EmployeeFeedback; 
+export default Feedback; 
