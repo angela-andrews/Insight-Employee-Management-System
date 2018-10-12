@@ -28,35 +28,35 @@ return(
           <hr />
           <div className="card-group">
             <div className="card" style={styles}>
-              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <img class="card-img-top" src="../images/hundred.png" alt="Skills Card" />
               <div class="card-body">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet</p>
               </div> 
             </div>
             <div className="card" style={styles}>
-              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <img class="card-img-top" src="../images/hundred.png" alt="Skills Card" />
               <div class="card-body">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet</p>
               </div> 
             </div>
             <div className="card" style={styles}>
-              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <img class="card-img-top" src="../images/hundred.png" alt="Skills Card" />
               <div class="card-body">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet</p>
               </div> 
             </div>
             <div className="card" style={styles}>
-              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <img class="card-img-top" src="../images/hundred.png" alt="Skills Card" />
               <div class="card-body">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet</p>
               </div> 
             </div>
             <div className="card" style={styles}>
-              <img class="card-img-top" src="../images/hundred.png" alt="Card image cap" />
+              <img class="card-img-top" src="../images/hundred.png" alt="Skills Card" />
               <div class="card-body">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet</p>
