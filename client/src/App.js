@@ -14,6 +14,7 @@ import Summary from "./components/SecurePages/Summary";
 import Education from "./components/SecurePages/Education";
 import Awards from "./components/SecurePages/Awards";
 import Certifications from "./components/SecurePages/Certifications";
+import GoalsObjectives from "./components/SecurePages/GoalsObjectives";
 import Skills from "./components/SecurePages/Skills";
 import WorkHistory from "./components/SecurePages/WorkHistory";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route exact path="/signin/education" component= { Education }/>
           <Route exact path="/signin/awards" component= { Awards }/>
           <Route exact path="/signin/certs" component= { Certifications }/>
+          <Route exact path="/signin/goals" component= { GoalsObjectives }/>
           <Route exact path="/signin/skills" component= { Skills }/>
           <Route exact path="/signin/whistory" component= { WorkHistory }/>
         </Switch>
