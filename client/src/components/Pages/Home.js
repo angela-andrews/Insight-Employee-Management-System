@@ -7,7 +7,7 @@ const Home = () => (
   <div>
     <Navbar
       imageSrc={"images/insight_name_tr.png"}
-      imageAlt={"Incite Logo"}
+      imageAlt={"insight Logo"}
       navLinks={["products", "customers", "company", "signin"]}
       signIn={true}
     />
