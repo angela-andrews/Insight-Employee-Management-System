@@ -16,6 +16,7 @@ import Awards from "./components/SecurePages/Awards";
 import Certifications from "./components/SecurePages/Certifications";
 import Skills from "./components/SecurePages/Skills";
 import WorkHistory from "./components/SecurePages/WorkHistory";
+import EmployeeFeedback from "./components/Pages/EmployeeFeedback";
 
 const App = () => (
   <div>
@@ -33,6 +34,7 @@ const App = () => (
           <Route exact path="/signin/certs" component= { Certifications }/>
           <Route exact path="/signin/skills" component= { Skills }/>
           <Route exact path="/signin/whistory" component= { WorkHistory }/>
+          <Route exact path="/feedback" component= {EmployeeFeedback} />
         </Switch>
       </div>
     </Router>

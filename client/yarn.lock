@@ -6797,6 +6797,10 @@ react-scripts@2.0.4:
   optionalDependencies:
     fsevents "1.2.4"
 
+react-sidemenu@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-sidemenu/-/react-sidemenu-1.0.4.tgz#c668d6d84f7430225daa951c45e614ae16de519e"
+
 react@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
