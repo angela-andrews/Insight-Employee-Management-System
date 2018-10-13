@@ -34,7 +34,7 @@ li {
 
 .nav-link-top:hover {
   animation: nav-color 0.6s forwards;
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 /* ------- SIDE-MENU component ------- */
@@ -66,12 +66,12 @@ i {
   color: rgb(100, 100, 100);
 }
 
-.nav-link-side:hover {
-  background-color: rgba(11, 115, 176);
-}
+/* .nav-link-side:hover {
+  background-color: rgb(0, 0, 0);
+} */
 
 .nav-link-side:hover i {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .active-menu {
@@ -79,5 +79,5 @@ i {
 }
 
 .active-menu i {
-  color: rgba(11, 115, 176);
+  color: rgba(22, 244, 208);
 }
