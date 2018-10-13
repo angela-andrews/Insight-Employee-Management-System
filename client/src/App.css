@@ -1,4 +1,4 @@
-html, body {
+html, =body {
   font-family: "Work Sans";
 }
 
@@ -80,4 +80,5 @@ i {
 
 .active-menu i {
   color: rgba(22, 244, 208);
+  text-shadow: 2px 2px rgb(9, 121, 102);
 }

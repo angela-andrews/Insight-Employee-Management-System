@@ -22,4 +22,6 @@
 
 .active-bar {
   border-right: 5px solid rgba(22, 244, 208);
+  font-weight: 700;
+  color: rgba(22, 244, 208);
 }
