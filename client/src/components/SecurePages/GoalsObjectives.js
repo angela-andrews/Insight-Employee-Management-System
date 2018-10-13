@@ -1,72 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navbar from '../Elements/Navbar';
 import Menu from '../Elements/Menu'
-import ReactTable from "react-table";
-import 'react-table/react-table.css'
-const data = [{
-    fName: 'Angela',
-    lName: "Andrews",
-    goals: "Incresed closed call rate",
-    goalStarted: "10/11/18",
-    goalDue: "11/1/18",
-    qualityScore: 4.4  
-},
-{
-    fName: 'Angela',
-    lName: "Andrews",
-    goals: "Reduced number of open tickets",
-    goalStarted: "10/11/18",
-    goalDue: "11/1/18",
-    qualityScore: 4.0  
-    
-},
-{
-    fName: 'Sergio',
-    lName: "Valente",
-    goals: "Incresed closed call rate",
-    goalStarted: "10/11/18",
-    goalDue: "11/1/18",
-    qualityScore: 3.9 
-},
-{
-    fName: 'Angela',
-    lName: "Andrews",
-    goals: "Reduced number of open tickets",
-    goalStarted: "10/11/18",
-    goalDue: "11/1/18",
-    qualityScore: 4.4  
-    
-}
-] 
+import data from '../../data/data'
 
-const columns = [
-              
-{Header : 'Name',
-    accessor: 'lname, fname'
-  }, 
-  {Header: 'Goals',
-  accessor: 'goals'
+class GoalsObjectives extends Component {
+    state = {
+        data:data
+    }
+  
+    render(){
 
-  },
-  {Header: 'Start Date',
-  accessor: 'goalStarted'
-
-  },
-  {Header: 'Due Date',
-  accessor: 'goalDue'
-
-  }, 
-  {Header: 'Quality Score',
-  accessor: 'qualityScore'
-
-  }
-
-
-]
-
-
-const GoalsObjectives = () => (
-  <div>
+    return(
+    <div>
+      
     <Navbar
       imageSrc={"../images/mycompany.png"}
       imageAlt={"My Company Logo"}
@@ -80,17 +26,46 @@ const GoalsObjectives = () => (
           <Menu />
         </div>
         <div className="col-sm-9">
-          <ReactTable 
-          data= {data}
-          column= {columns}
+        <table className="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Goals</th>
+      <th scope="col">Goal Started</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Quality Score</th>
 
-
-        />
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{data.lName}, {data.fName}</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td>@fat</td>
+    </tr>
+  </tbody>
+</table>
         
         </div>
       </div>
     </div>
   </div>
-)
+     ) }
+}
 
 export default GoalsObjectives;
