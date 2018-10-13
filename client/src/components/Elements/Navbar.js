@@ -15,7 +15,7 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
       <li className="nav-link"><b>{signIn ? '' : `Hello ${userName}`}</b></li>
         {navLinks.map((link, index) => {
           return (<li key={index} className="nav-item">
-          <a className="nav-link" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
+          <a className="nav-link nav-link-top" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
         </li>)
         })}
       </ul>
