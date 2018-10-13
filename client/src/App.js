@@ -18,6 +18,7 @@ import Certifications from "./components/SecurePages/Certifications";
 import GoalsObjectives from "./components/SecurePages/GoalsObjectives";
 import Skills from "./components/SecurePages/Skills";
 import WorkHistory from "./components/SecurePages/WorkHistory";
+import Feedback from "./components/Pages/Feedback";
 
 const App = () => (
   <div>
@@ -36,6 +37,7 @@ const App = () => (
           <Route exact path="/signin/goals" component= { GoalsObjectives }/>
           <Route exact path="/signin/skills" component= { Skills }/>
           <Route exact path="/signin/whistory" component= { WorkHistory }/>
+          <Route exact path="/feedback" component= {Feedback} />
         </Switch>
       </div>
     </Router>
