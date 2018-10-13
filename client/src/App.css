@@ -1,10 +1,18 @@
-html, =body {
+html, body {
   font-family: "Work Sans";
 }
 
 /* ------- NAVBAR component ------- */
 .logo-name {
   height: 60px;
+}
+
+.logo-sm {
+  height: 50px;
+}
+
+.span-powered {
+  font-size: 0.8rem;
 }
 
 .nav-link {
