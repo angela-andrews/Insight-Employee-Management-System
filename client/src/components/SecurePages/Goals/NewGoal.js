@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../Elements/Navbar'
 import Menu from '../../Elements/Menu'
+import NewGoalHeader from './NewGoalHeader';
 
 const NewGoal = () => (
   <div>
@@ -16,9 +17,7 @@ const NewGoal = () => (
         <div className="col-sm-2">
           <Menu />
         </div>
-        <div className="col-sm-10">
-
-        </div>
+        <NewGoalHeader />
       </div>
     </div>
   </div>
