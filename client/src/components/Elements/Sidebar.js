@@ -5,7 +5,7 @@ const Sidebar = () => (
     <div>
       <ul className="navbar-nav ml-auto">
         {/* <li><a href="/"><img className="logo-sidebar" alt="insight logo" src="/images/insight_logo_tr.png" /></a></li> */}
-        <a href="/" className="nav-link-side active-menu">
+        <a href="/" className="nav-link-side">
           <li className="nav-link"><i class="fas fa-home"></i></li>
         </a>
         <a href="/" className="nav-link-side">
@@ -17,7 +17,7 @@ const Sidebar = () => (
         <a href="/" className="nav-link-side">
           <li className="nav-link"><i class="fas fa-comments"></i></li>
         </a>
-        <a href="/" className="nav-link-side">
+        <a href="/" className="nav-link-side active-menu">
           <li className="nav-link"><i class="fas fa-chart-line"></i></li>
         </a>
       </ul>

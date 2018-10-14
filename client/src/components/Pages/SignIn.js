@@ -6,7 +6,7 @@ import Menu from "../Elements/Menu";
 const SignIn = () => (
   <div>
     <Navbar
-      imageSrc={"images/mycompany.png"}
+      imageSrc={"images/co_cyp.png"}
       imageAlt={"My Company Logo"}
       navLinks={["home", "profile", "signout"]}
       signIn={false}
