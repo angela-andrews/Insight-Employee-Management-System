@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Time = props => (
+const Time = () => (
   <>
   <div className="row">
   <fieldset>
@@ -22,7 +22,7 @@ const Time = props => (
 </fieldset>
 
 </div>
-<button {...props}>Next -></button>
+
 </>
 );
 

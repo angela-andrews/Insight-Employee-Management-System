@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Measurable = props => (
+const Measurable = () => (
   <form>
 
     <fieldset disabled>
@@ -21,8 +21,6 @@ const Measurable = props => (
         <input type="text" id="jobPercent" className="form-control" placeholder="35%" />
       </div>
     </fieldset>
-
-    <button {...props}>Next -></button>
 
   </form>
 );
