@@ -8,6 +8,7 @@ import Measurable from './Measurable';
 import Actions from './Actions';
 import Relevant from './Relevant';
 import Time from './Time';
+import Bam from './Bam';
 
 const NewGoal = () => (
   <div>
@@ -25,12 +26,13 @@ const NewGoal = () => (
         </div>
         <div className="col-sm-10">
           <NewGoalHeader />
-          {/* <EmpList /> */}
-          {/* <Specific /> */}
-          {/* <Measurable /> */}
-          {/* <Actions /> */}
-          {/* <Relevant /> */}
+          <EmpList />
+          <Specific />
+          <Measurable />
+          <Actions />
+          <Relevant />
           <Time />
+          <Bam />
         </div>
       </div>
 

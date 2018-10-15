@@ -6,16 +6,16 @@ const Time = () => (
   <fieldset>
     <legend>Choose your dates</legend>
     <div className="col-md-6">
-        <label for="start">Due Date:</label>
+        <label htmlFor="start">Due Date:</label>
         <input type="date" id="start" name="trip"
-               value="2018-07-22"
+               defaultValue="2018-07-22"
                min="2018-01-01" max="2018-12-31" />
     </div>
 
     <div className="col-md-6">
-        <label for="end">Follow-up Date:</label>
+        <label htmlFor="end">Follow-up Date:</label>
         <input type="date" id="end" name="trip"
-               value="2018-07-29"
+               defaultValue="2018-07-29"
                min="2018-01-01" max="2018-12-31" />
     </div>
 
