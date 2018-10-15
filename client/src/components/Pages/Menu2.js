@@ -1,16 +1,64 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './Menu2.css'
+
+const options = [
+	{ 
+	  route: "/signin/summary",
+		name: "Summary"
+	},
+	{ 
+		route: "/signin/whistory",
+		name: "Work History"
+	},
+	{ 
+		route: "/signin/education",
+		name: "Education"
+	},
+	{ 
+		route: "/signin/awards",
+		name: "Awards"
+	},
+	{ 
+		route: "/signin/skills",
+		name: "Skills"
+	},
+	{ 
+		route: "/signin/certs",
+		name: "Certifications"
+	}
+];
 
 class Menu extends Component {
 	render() {
 		return (
 			<div className="side-menu align-items-start">
-				<div className="menu-option"><span>Summary</span></div>
-				<div className="menu-option"><span>Work History</span></div>
-				<div className="menu-option active-bar"><span>Education</span></div>
-				<div className="menu-option"><span>Awards</span></div>
-				<div className="menu-option"><span>Skills</span></div>
-				<div className="menu-option"><span>Certifications</span></div>
+				{
+					options.map( option => (
+						<Link to={option.route} className=
+							{ window.location.pathname === option.route ? "menu-option active-bar" : "menu-option" }>
+							<span>{option.name}</span>
+						</Link>
+					) )
+				}
+				<Link to="/signin/goals" className=
+					{ window.location.pathname === "/signin/goals"
+						? "menu-option dropdown active-bar"
+						: "menu-option dropdown" }>
+					<span>Goals &amp; Objectives</span>
+					<div className="dropdown-content" >
+						<Link to="/signin/goals" className=
+							{ window.location.pathname === "/signin/goals"
+								? "menu-option menu-suboption dropdown active-bar"
+								: "menu-option menu-suboption dropdown" }>See Current Goals
+						</Link>
+						<Link to="/signin/newgoal" className=
+							{ window.location.pathname === "/signin/newgoal"
+								? "menu-option menu-suboption dropdown active-bar"
+								: "menu-option menu-suboption dropdown" }>Create New Goal
+						</Link>
+					</div>
+				</Link>
 			</div>
 		);
 	}

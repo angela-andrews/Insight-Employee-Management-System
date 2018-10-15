@@ -10,6 +10,8 @@
 .menu-option:hover {
   background-color: black;
   border-right: 5px solid rgba(22, 244, 208);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 .side-menu {
@@ -24,4 +26,28 @@
   border-right: 5px solid rgba(22, 244, 208);
   font-weight: 700;
   color: rgba(22, 244, 208);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 120%;
+  left: 100px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+.menu-suboption {
+  font-size: 0.9rem;
+  float: left;
 }
