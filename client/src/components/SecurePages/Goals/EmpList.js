@@ -7,7 +7,7 @@ const people = [
   {empID: 4, firstName: "Megan",      lastName: "Anthony",  position: "Analyst",    random: "random"}
 ];
 
-const EmpList = props => (
+const EmpList = () => (
   <>
   <table className="table table-striped">
     <thead>
@@ -32,7 +32,6 @@ const EmpList = props => (
       })}
     </tbody>
   </table>
-  <button {...props}>Next -></button>
   </>
 );
 

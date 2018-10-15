@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Specific = props => (
+const Specific = () => (
   <form>
     <div className="form-group">
       <label htmlFor="goalName">What is the goal?</label>
@@ -11,7 +11,7 @@ const Specific = props => (
       <label htmlFor="goalDesc">Add your description</label>
       <textarea className="form-control" id="goalDesc" rows="3"></textarea>
     </div>
-    <button {...props}>Next -></button>
+
   </form>
 );
 

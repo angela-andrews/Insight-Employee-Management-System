@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Relevant = props => (
+const Relevant = () => (
   <form>
 
     <fieldset disabled>
@@ -14,8 +14,6 @@ const Relevant = props => (
         <input type="text" id="jobPercent" className="form-control" placeholder="35%" />
       </div>
     </fieldset>
-
-    <button {...props}>Next -></button>
 
   </form>
 );

@@ -9,6 +9,7 @@ import Actions from './Actions';
 import Relevant from './Relevant';
 import Time from './Time';
 import Complete from './Complete';
+import NextButton from './NextButton';
 
 class NewGoal extends React.Component {
 
@@ -44,56 +45,38 @@ class NewGoal extends React.Component {
       case "Employee":
         return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <EmpList 
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps(null, "Specific")}
-        />
+        <EmpList />
+        <NextButton onClick={() => this.updateSteps(null, "Specific")}/>
         </>)
       case "Specific":
       return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <Specific 
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps("Specific", "Measureable")}
-        />
+        <Specific />
+        <NextButton onClick={() => this.updateSteps("Specific", "Measureable")}/>
       </>)
       case "Measureable":
         return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <Measurable
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps("Measureable", "Action")}
-        />
+        <Measurable />
+        <NextButton onClick={() => this.updateSteps("Measureable", "Action")} />
         </>)
       case "Action":
         return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <Actions
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps("Action", "Relevant")}
-        />
+        <Actions />
+        <NextButton onClick={() => this.updateSteps("Action", "Relevant")}/>
         </>)
       case "Relevant":
         return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <Relevant 
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps("Relevant", "Time")}
-        />
+        <Relevant />
+        <NextButton onClick={() => this.updateSteps("Relevant", "Time")}/>
         </>)
       case "Time":
         return (<>
         <NewGoalHeader steps={this.state.steps}/>
-        <Time 
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => this.updateSteps("Time", "Confirm")}
-        />
+        <Time />
+        <NextButton onClick={() => this.updateSteps("Time", "Confirm")} />
         </>)
       case "Confirm":
       return (<>
