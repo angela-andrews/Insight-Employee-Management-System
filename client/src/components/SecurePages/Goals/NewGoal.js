@@ -3,6 +3,7 @@ import Navbar from '../../Elements/Navbar'
 import Menu from '../../Elements/Menu'
 import NewGoalHeader from './NewGoalHeader';
 import EmpList from  './EmpList';
+import Specific from './Specific';
 
 const NewGoal = () => (
   <div>
@@ -20,7 +21,8 @@ const NewGoal = () => (
         </div>
         <div className="col-sm-10">
           <NewGoalHeader />
-          <EmpList />
+          {/* <EmpList /> */}
+          <Specific />
         </div>
       </div>
 
