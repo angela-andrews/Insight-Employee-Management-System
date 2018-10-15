@@ -8,54 +8,124 @@ import Measurable from './Measurable';
 import Actions from './Actions';
 import Relevant from './Relevant';
 import Time from './Time';
-import Bam from './Bam';
+import Complete from './Complete';
 
 class NewGoal extends React.Component {
 
   state = {
-    currentStep: "employee"
+    currentStep: "employee",
   }
 
   handleWizard() {
     switch (this.state.currentStep) {
       case "employee":
-        return <EmpList 
+        return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: false},
+          {name: "Measurable", value: false},
+          {name:"Actionable", value: false},
+          {name: "Relevant", value: false},
+          {name: "Time-bound", value: false}]}
+      />
+        <EmpList 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "specific" })}
+          onClick={() => this.setState({ currentStep: "specific", })}
         />
+        </>)
       case "specific":
-        return <Specific 
+      return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: false},
+          {name: "Measurable", value: false},
+          {name:"Actionable", value: false},
+          {name: "Relevant", value: false},
+          {name: "Time-bound", value: false}]}
+      />
+        <Specific 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "measureable" })}
+          onClick={() => this.setState({ currentStep: "measureable", })}
         />
+        </>)
       case "measureable":
-        return <Measurable
+        return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: true},
+          {name: "Measurable", value: false},
+          {name:"Actionable", value: false},
+          {name: "Relevant", value: false},
+          {name: "Time-bound", value: false}]}
+      />
+        <Measurable
           type="submit"
           className="btn btn-primary"
           onClick={() => this.setState({ currentStep: "action" })}
         />
+        </>)
       case "action":
-        return <Actions
+        return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: true},
+          {name: "Measurable", value: true},
+          {name:"Actionable", value: false},
+          {name: "Relevant", value: false},
+          {name: "Time-bound", value: false}]}
+      />
+        <Actions
           type="submit"
           className="btn btn-primary"
           onClick={() => this.setState({ currentStep: "relevant" })}
         />
+        </>)
       case "relevant":
-        return <Relevant 
+        return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: true},
+          {name: "Measurable", value: true},
+          {name:"Actionable", value: true},
+          {name: "Relevant", value: false},
+          {name: "Time-bound", value: false}]}
+      />
+        <Relevant 
           type="submit"
           className="btn btn-primary"
           onClick={() => this.setState({ currentStep: "time" })}
         />
+        </>)
       case "time":
-        return <Time 
+        return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: true},
+          {name: "Measurable", value: true},
+          {name:"Actionable", value: true},
+          {name: "Relevant", value: true},
+          {name: "Time-bound", value: false}]}
+      />
+        <Time 
           type="submit"
           className="btn btn-primary"
           onClick={() => this.setState({ currentStep: "confirm" })}
         />
+        </>)
       case "confirm":
-        return <Bam />;
+      return (<>
+        <NewGoalHeader
+        steps={[
+          {name: "Specific", value: true},
+          {name: "Measurable", value: true},
+          {name:"Actionable", value: true},
+          {name: "Relevant", value: true},
+          {name: "Time-bound", value: true}]}
+        /> 
+        <Complete />;
+        </>)
       default: 
         return <EmpList />;
     }
@@ -77,7 +147,6 @@ class NewGoal extends React.Component {
               <Menu />
             </div>
             <div className="col-sm-10">
-              <NewGoalHeader />
               {this.handleWizard()}
             </div>
           </div>
