@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Measurable = () => (
+const Measurable = props => (
   <form>
 
     <fieldset disabled>
@@ -22,7 +22,7 @@ const Measurable = () => (
       </div>
     </fieldset>
 
-    <button type="submit" className="btn btn-primary">Next -></button>
+    <button {...props}>Next -></button>
 
   </form>
 );
