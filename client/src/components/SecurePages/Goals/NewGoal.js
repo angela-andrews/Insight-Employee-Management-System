@@ -4,6 +4,7 @@ import Menu from '../../Elements/Menu'
 import NewGoalHeader from './NewGoalHeader';
 import EmpList from  './EmpList';
 import Specific from './Specific';
+import Measurable from './Measurable';
 
 const NewGoal = () => (
   <div>
@@ -22,7 +23,8 @@ const NewGoal = () => (
         <div className="col-sm-10">
           <NewGoalHeader />
           {/* <EmpList /> */}
-          <Specific />
+          {/* <Specific /> */}
+          <Measurable />
         </div>
       </div>
 
