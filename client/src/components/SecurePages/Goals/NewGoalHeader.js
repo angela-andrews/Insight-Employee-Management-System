@@ -3,7 +3,7 @@ import React from 'react';
 const steps = ["Specific", "Measurable", "Actionable", "Relevant", "Time-bound"];
 
 const NewGoalHeader = () => (
-  <div className="col-sm-10">
+  <div>
     <div className="row">
       {steps.map((step, index) => {
         return(
