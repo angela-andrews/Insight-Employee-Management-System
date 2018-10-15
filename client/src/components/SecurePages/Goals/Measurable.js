@@ -2,6 +2,7 @@ import React from 'react';
 
 const Measurable = () => (
   <form>
+
     <fieldset disabled>
       <div class="form-group">
         <label for="currentPerf">Current Performance:</label>
@@ -20,6 +21,8 @@ const Measurable = () => (
         <input type="text" id="jobPercent" className="form-control" placeholder="35%" />
       </div>
     </fieldset>
+
+    <button type="submit" className="btn btn-primary">Next -></button>
 
   </form>
 );
