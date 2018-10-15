@@ -2,7 +2,7 @@ import React from 'react';
 
 const actionSteps = [1, 2, 3, 4]
 
-const Actions = () => (
+const Actions = props => (
   <div>
     {actionSteps.map((action, index) => {
       return(
@@ -24,7 +24,7 @@ const Actions = () => (
         </div>
       )
     })}
-  <button type="submit" className="btn btn-primary">Next -></button>
+    <button {...props}>Next -></button>
   </div>
 );
 

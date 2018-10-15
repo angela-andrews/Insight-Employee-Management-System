@@ -7,7 +7,8 @@ const people = [
   {empID: 4, firstName: "Megan",      lastName: "Anthony",  position: "Analyst",    random: "random"}
 ];
 
-const EmpList = () => (
+const EmpList = props => (
+  <>
   <table className="table table-striped">
     <thead>
       <tr>
@@ -31,6 +32,8 @@ const EmpList = () => (
       })}
     </tbody>
   </table>
+  <button {...props}>Next -></button>
+  </>
 );
 
 export default EmpList;

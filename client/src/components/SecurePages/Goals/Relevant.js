@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Relevant = () => (
+const Relevant = props => (
   <form>
 
     <fieldset disabled>
@@ -15,7 +15,7 @@ const Relevant = () => (
       </div>
     </fieldset>
 
-    <button type="submit" className="btn btn-primary">Next -></button>
+    <button {...props}>Next -></button>
 
   </form>
 );
