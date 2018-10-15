@@ -1,0 +1,23 @@
+import React from 'react';
+
+const Relevant = () => (
+  <form>
+
+    <fieldset disabled>
+      <div class="form-group">
+        <label for="currentPerf">Job Category:</label>
+        <input type="text" id="currentPerf" className="form-control" placeholder="50 Customers" />
+      </div>
+
+      <div className="form-group">
+        <label for="jobPercent">Percent of Current Job:</label>
+        <input type="text" id="jobPercent" className="form-control" placeholder="35%" />
+      </div>
+    </fieldset>
+
+    <button type="submit" className="btn btn-primary">Next -></button>
+
+  </form>
+);
+
+export default Relevant;

@@ -6,6 +6,7 @@ import EmpList from  './EmpList';
 import Specific from './Specific';
 import Measurable from './Measurable';
 import Actions from './Actions';
+import Relevant from './Relevant';
 
 const NewGoal = () => (
   <div>
@@ -26,7 +27,8 @@ const NewGoal = () => (
           {/* <EmpList /> */}
           {/* <Specific /> */}
           {/* <Measurable /> */}
-          <Actions />
+          {/* <Actions /> */}
+          <Relevant />
         </div>
       </div>
 

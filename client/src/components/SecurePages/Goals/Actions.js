@@ -24,6 +24,7 @@ const Actions = () => (
         </div>
       )
     })}
+  <button type="submit" className="btn btn-primary">Next -></button>
   </div>
 );
 
