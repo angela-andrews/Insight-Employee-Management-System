@@ -13,117 +13,91 @@ import Complete from './Complete';
 class NewGoal extends React.Component {
 
   state = {
-    currentStep: "employee",
+    currentStep: "Employee",
+    steps: [
+      {name: "Specific",    value: false},
+      {name: "Measureable", value: false},
+      {name: "Action",      value: false},
+      {name: "Relevant",    value: false},
+      {name: "Time",        value: false}
+    ]
   }
+
+  updateSteps(stepComplete, nextStep) {
+    const updated = [...this.state.steps].map(step => {
+      if(step.name === stepComplete) {
+        let newStep = {
+          name: stepComplete,
+          value: true
+        }
+        return newStep
+      } else {
+        return step
+      }
+    })
+    this.setState({ steps : updated, currentStep: nextStep})
+  };
+  
 
   handleWizard() {
     switch (this.state.currentStep) {
-      case "employee":
+      case "Employee":
         return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: false},
-          {name: "Measurable", value: false},
-          {name:"Actionable", value: false},
-          {name: "Relevant", value: false},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <EmpList 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "specific", })}
+          onClick={() => this.updateSteps(null, "Specific")}
         />
         </>)
-      case "specific":
+      case "Specific":
       return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: false},
-          {name: "Measurable", value: false},
-          {name:"Actionable", value: false},
-          {name: "Relevant", value: false},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <Specific 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "measureable", })}
+          onClick={() => this.updateSteps("Specific", "Measureable")}
         />
-        </>)
-      case "measureable":
+      </>)
+      case "Measureable":
         return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: true},
-          {name: "Measurable", value: false},
-          {name:"Actionable", value: false},
-          {name: "Relevant", value: false},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <Measurable
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "action" })}
+          onClick={() => this.updateSteps("Measureable", "Action")}
         />
         </>)
-      case "action":
+      case "Action":
         return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: true},
-          {name: "Measurable", value: true},
-          {name:"Actionable", value: false},
-          {name: "Relevant", value: false},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <Actions
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "relevant" })}
+          onClick={() => this.updateSteps("Action", "Relevant")}
         />
         </>)
-      case "relevant":
+      case "Relevant":
         return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: true},
-          {name: "Measurable", value: true},
-          {name:"Actionable", value: true},
-          {name: "Relevant", value: false},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <Relevant 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "time" })}
+          onClick={() => this.updateSteps("Relevant", "Time")}
         />
         </>)
-      case "time":
+      case "Time":
         return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: true},
-          {name: "Measurable", value: true},
-          {name:"Actionable", value: true},
-          {name: "Relevant", value: true},
-          {name: "Time-bound", value: false}]}
-      />
+        <NewGoalHeader steps={this.state.steps}/>
         <Time 
           type="submit"
           className="btn btn-primary"
-          onClick={() => this.setState({ currentStep: "confirm" })}
+          onClick={() => this.updateSteps("Time", "Confirm")}
         />
         </>)
-      case "confirm":
+      case "Confirm":
       return (<>
-        <NewGoalHeader
-        steps={[
-          {name: "Specific", value: true},
-          {name: "Measurable", value: true},
-          {name:"Actionable", value: true},
-          {name: "Relevant", value: true},
-          {name: "Time-bound", value: true}]}
-        /> 
+        <NewGoalHeader steps={this.state.steps}/>
         <Complete />;
         </>)
       default: 
