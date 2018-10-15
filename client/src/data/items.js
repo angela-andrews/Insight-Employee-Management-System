@@ -5,7 +5,11 @@ const items = [
 	{label: 'Awards', value: 'awards', icon: '',},
 	{label: 'Skills', value: 'skills', icon: '',},
 	{label: 'Certifications', value: 'certs', icon: '',},
-	{label: 'Goals & Objectives', value: 'goals', icon: '',},
+	{label: 'Goals & Objectives', value: 'goals', icon: '',
+	children: [
+		{ label: "See Current Goals", value: "goals", icon: ''},
+		{ label: "Create New Goal", value: "newgoal", icon: ''},
+	]},
 ];
 
 export default items;
