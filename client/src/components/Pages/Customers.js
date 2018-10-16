@@ -1,7 +1,27 @@
 import React from 'react';
 import Navbar from '../Elements/Navbar';
 
-const Customers = () => (
+const fetchData = () => {
+  fetch('http://localhost:5000/graphql', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ query:
+      `{
+        allEmployees {
+          firstName
+          lastName
+          homeZip
+        }
+      }`
+    }),
+  })
+  .then(res => res.json())
+  .then(res => console.log(res.data));
+};
+
+const Customers = () => {
+  fetchData()
+  return(
   <div>
     <Navbar
       imageSrc={"images/insight_name_tr.png"}
@@ -11,6 +31,7 @@ const Customers = () => (
     />
     <h1>In the Customers Route</h1>
   </div>
-);
+  )
+};
 
 export default Customers;
