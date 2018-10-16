@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../Elements/Navbar';
 
 const fetchData = () => {
-  fetch('http://localhost:5000/graphql', {
+  fetch('/graphql', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ query:
