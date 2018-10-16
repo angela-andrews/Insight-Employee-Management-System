@@ -1,23 +1,24 @@
-import React from 'react';
+import React from "react";
 import { Route } from "react-router-dom";
 
-import gqlFetch from '../../utils/gqlFetch';
+import gqlFetch from "../../utils/gqlFetch";
 
 import Menu from "../Elements/Menu";
-import Navbar from '../Elements/Navbar';
+import Navbar from "../Elements/Navbar";
 import Sidebar from "../Elements/Sidebar";
 
 import Awards from "../SecurePages/Awards";
 import Certifications from "../SecurePages/Certifications";
 import Education from "../SecurePages/Education";
-import NewGoal from "../SecurePages/Goals/NewGoal";
 import GoalsObjectives from "../SecurePages/GoalsObjectives";
+import NewGoal from "../SecurePages/Goals/NewGoal";
 import Skills from "../SecurePages/Skills";
 import Summary from "../SecurePages/Summary";
 import WorkHistory from "../SecurePages/WorkHistory";
 
 class SignIn extends React.Component {
   state = {
+    id: '5bc60ae61983ff07177f9895',
     singinName: ""
   };
 
@@ -25,16 +26,11 @@ class SignIn extends React.Component {
     this.nameLookup();
   };
 
-  nameLookup = id => {
-    gqlFetch.fetchData( `
-    {
-      employee(id: "5bc60ae61983ff07177f9895") {
-        firstName
-      }
-    }`)
-    .then(res => res.json())
-    .then(res => this.setState({ singinName: res.data.employee.firstName }))
-  } 
+  nameLookup = () => {
+    gqlFetch.fetchEmpById(this.state.id)
+      .then(res => res.json())
+      .then(res => this.setState({ singinName: res.data.employee.firstName }));
+  };
   
   render() {
     return (
@@ -52,7 +48,7 @@ class SignIn extends React.Component {
               <Sidebar />
               <Menu />
               <div>
-                <Route exact path="/signin/summary"   component= { Summary }        />
+                <Route exact path="/signin/summary"   render={() => <Summary id={this.state.id} />} />
                 <Route exact path="/signin/education" component= { Education }      />
                 <Route exact path="/signin/awards"    component= { Awards }         />
                 <Route exact path="/signin/certs"     component= { Certifications } />
@@ -65,7 +61,7 @@ class SignIn extends React.Component {
           </div>
         </div>
       </>
-    )
+    );
   }; 
 };
 
