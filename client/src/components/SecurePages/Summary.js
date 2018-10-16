@@ -1,7 +1,4 @@
 import React from 'react';
-
-import Navbar from '../Elements/Navbar';
-import Menu from '../Elements/Menu'
 import HomeSummary from './SummaryPages/HomeSummary';
 import WorkSummary from './SummaryPages/WorkSummary';
 import PositionSummary from './SummaryPages/PositionSummary';

@@ -34,8 +34,8 @@ class Menu extends Component {
 		return (
 			<div className="side-menu align-items-start">
 				{
-					options.map( option => (
-						<Link to={option.route} className=
+					options.map((option,index) => (
+						<Link key={index}to={option.route} className=
 							{ window.location.pathname === option.route ? "menu-option active-bar" : "menu-option" }>
 							<span>{option.name}</span>
 						</Link>
