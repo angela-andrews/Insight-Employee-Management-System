@@ -4,7 +4,7 @@ import Menu from '../Elements/Menu'
 
 const WorkHistory = () => (
   <div>
-    <div className="container-fluid">
+    <div className="container">
       <div className="row">
         <div className="col-sm-12">
           <h6>Profile > Work History</h6>
