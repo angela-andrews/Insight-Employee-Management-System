@@ -12,7 +12,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
     "seed": "node scripts/seed.js"
-
   },
   "author": "Angela Andrews, Daniel Gross, Guillermo Barila, Megan Anthony",
   "license": "ISC",
@@ -22,8 +21,11 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "express": "^4.15.4",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.4",
     "mysql2": "^1.6.1",

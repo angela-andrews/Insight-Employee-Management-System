@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../Elements/Navbar';
-import Menu from '../Elements/Menu'
 
 class GoalsObjectives extends Component {
     
