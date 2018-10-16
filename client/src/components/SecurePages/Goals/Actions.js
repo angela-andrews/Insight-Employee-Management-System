@@ -16,9 +16,9 @@ const Actions = () => (
               <span className="sr-only">Toggle Dropdown</span>
             </button>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Add Action</a>
+              <a className="dropdown-item" href="/">Add Action</a>
               <div role="separator" className="dropdown-divider"></div>
-              <a className="dropdown-item text-danger" href="#">Remove Action</a>
+              <a className="dropdown-item text-danger" href="/">Remove Action</a>
             </div>
           </div>
         </div>

@@ -2,15 +2,12 @@ import React from 'react';
 
 const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
   <nav className="navbar navbar-expand-lg navbar-light">
-    <a className="navbar-brand d-flex" href="/">
-      <img className="logo-name" alt={imageAlt} src={imageSrc} />
       {signIn ? '' :
          <div className="d-flex align-items-end">
            <span className="span-powered">powered by </span>
            <img className="logo-sm" alt="insight logo small" src="/images/insight_logo_tr.png" />
          </div>
       }
-    </a>
     <button 
       className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
       aria-expanded="false" aria-label="Toggle navigation">

@@ -1,7 +1,9 @@
 import React from 'react';
 import Navbar from '../Elements/Navbar';
 
-const Customers = () => (
+
+const Customers = () => {
+  return(
   <div>
     <Navbar
       imageSrc={"images/insight_name_tr.png"}
@@ -11,6 +13,7 @@ const Customers = () => (
     />
     <h1>In the Customers Route</h1>
   </div>
-);
+  )
+};
 
 export default Customers;

@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../Elements/Navbar';
-import Menu from '../Elements/Menu'
 
 const Awards = () => (
   <div>

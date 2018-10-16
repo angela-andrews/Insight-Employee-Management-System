@@ -1,20 +1,21 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
+
 import "./App.css"
 
+import Company from "./components/Pages/Company";
+import Customers from "./components/Pages/Customers";
+import Feedback from "./components/Pages/Feedback";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products";
-import Customers from "./components/Pages/Customers";
-import Company from "./components/Pages/Company";
 import Signin from "./components/Pages/SignIn";
-import Feedback from "./components/Pages/Feedback";
 
 const App = () => (
-  <div>
+  <>
     <Router>
       <div>
         <Switch>
@@ -27,7 +28,7 @@ const App = () => (
         </Switch>
       </div>
     </Router>
-  </div>
+  </>
 );
 
 export default App;

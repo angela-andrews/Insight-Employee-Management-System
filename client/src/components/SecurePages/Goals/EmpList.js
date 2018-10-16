@@ -1,38 +1,51 @@
 import React from 'react';
+import gql from '../../../utils/gqlFetch';
 
-const people = [
-  {empID: 1, firstName: "Angela",     lastName: "Andrews",  position: "Accountant", random: "random"},
-  {empID: 2, firstName: "Dan",        lastName: "Gross",    position: "Controller", random: "random"},
-  {empID: 3, firstName: "Guillermo",  lastName: "Barila",   position: "Marketing",  random: "random"},
-  {empID: 4, firstName: "Megan",      lastName: "Anthony",  position: "Analyst",    random: "random"}
-];
+class EmpList extends React.Component {
+  state = {
+    employeeList: []
+  };
 
-const EmpList = () => (
-  <>
-  <table className="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Last Name</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Something Else</th>
-        <th scope="col">Click Me</th>
-      </tr>
-    </thead>
-    <tbody>
-      {people.map(person => {
-        return (
-          <tr key={person.empID}>
-            <th scope="row">{person.lastName}</th>
-            <td>{person.firstName}</td>
-            <td>{person.position}</td>
-            <td>{person.random}</td>
-            <button>Click Me</button>
-        </tr>)
-      })}
-    </tbody>
-  </table>
-  </>
-);
+  componentDidMount() {
+    this.fetchEmployees();
+  };
+
+  fetchEmployees = () => {
+    gql.fetchData( `{ allEmployees { id firstName lastName position supervisor } }`)
+    .then(res => res.json())
+    .then(res => {
+      this.setState({ employeeList: res.data.allEmployees })
+      console.log(res.data.allEmployees)
+    })
+  };
+
+  render() {
+    return(
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.employeeList.map(employee => {
+            return (
+              <tr key={employee.id}>
+              <th scope="row">{employee.id}</th>
+              <td>{employee.firstName}</td>
+              <td>{employee.lastName}</td>
+              <td>{employee.position}</td>
+              <td>{employee.supervisor}</td>
+              </tr>)
+          })}
+        </tbody>
+      </table>
+    )
+  }
+};
 
 export default EmpList;
