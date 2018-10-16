@@ -4,7 +4,6 @@ const Sidebar = () => (
   <nav className="sidebar d-flex flex-column justify-content-between">
     <div>
       <ul className="navbar-nav ml-auto">
-        {/* <li><a href="/"><img className="logo-sidebar" alt="insight logo" src="/images/insight_logo_tr.png" /></a></li> */}
         <a href="/" className="nav-link-side">
           <li className="nav-link"><i class="fas fa-home"></i></li>
         </a>

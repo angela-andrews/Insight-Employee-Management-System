@@ -8,21 +8,10 @@ class GoalsObjectives extends Component {
     render(){
 
     return(
-    <div>
-      
-    <Navbar
-      imageSrc={"../images/mycompany.png"}
-      imageAlt={"My Company Logo"}
-      navLinks={["home", "profile", "signout"]}
-      signIn={false}
-      userName={"Angela"}
-    />
+    <div>      
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-2">
-          <Menu />
-        </div>
-        <div className="col-sm-9">
+        <div className="col-sm-12">
         <table className="table table-striped">
   <thead>
     <tr>
