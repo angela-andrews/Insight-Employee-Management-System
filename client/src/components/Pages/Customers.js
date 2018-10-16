@@ -1,26 +1,8 @@
 import React from 'react';
 import Navbar from '../Elements/Navbar';
 
-const fetchData = () => {
-  fetch('/graphql', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ query:
-      `{
-        allEmployees {
-          firstName
-          lastName
-          homeZip
-        }
-      }`
-    }),
-  })
-  .then(res => res.json())
-  .then(res => console.log(res.data));
-};
 
 const Customers = () => {
-  fetchData()
   return(
   <div>
     <Navbar

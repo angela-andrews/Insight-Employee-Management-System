@@ -19,7 +19,9 @@ const EmployeeType = new GraphQLObjectType({
     homeCity:       {type: GraphQLString},
     homeState:      {type: GraphQLString},
     homeZip:        {type: GraphQLString},
-    homeCountry:    {type : GraphQLString}
+    homeCountry:    {type: GraphQLString},
+    position:       {type: GraphQLString},
+    supervisor:     {type: GraphQLString}
   })
 });
 
