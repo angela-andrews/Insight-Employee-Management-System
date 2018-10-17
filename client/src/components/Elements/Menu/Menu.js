@@ -41,8 +41,8 @@ class Menu extends Component {
 						</Link>
 					) )
 				}
-				<Link to="/signin/goals" className=
-					{ window.location.pathname === "/signin/goals"
+				<div className=
+					{ window.location.pathname === "/signin/goals" || window.location.pathname === "/signin/newgoal"
 						? "menu-option dropdown active-bar"
 						: "menu-option dropdown" }>
 					<span>Goals &amp; Objectives</span>
@@ -58,7 +58,7 @@ class Menu extends Component {
 								: "menu-option menu-suboption dropdown" }>Create New Goal
 						</Link>
 					</div>
-				</Link>
+				</div>
 			</div>
 		);
 	}
