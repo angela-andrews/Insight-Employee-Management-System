@@ -42,7 +42,7 @@ class Summary extends React.Component {
       case "work":
         return <WorkSummary id={this.state.id}/>;
       case "position":
-        return <PositionSummary />;
+        return <PositionSummary id={this.state.id}/>;
       case "personal":
         return <PersonalSummary />;
       default:
