@@ -6,18 +6,12 @@ export default {
       body: JSON.stringify({ query }),
     })
   },
-  fetchEmpById: function(id) {
+  fetchById: function(id, query) {
     return fetch('/graphql', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 
-        query: 
-        `query Employee($id: ID) {
-          employee(id: $id) {
-            firstName
-            lastName
-          }
-        }`,
+        query: query,
         variables: {id} 
       })
     })

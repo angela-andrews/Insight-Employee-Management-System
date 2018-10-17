@@ -18,7 +18,7 @@ import WorkHistory from "../SecurePages/WorkHistory";
 
 class SignIn extends React.Component {
   state = {
-    id: "5bc67b273980260f65b732c9",
+    id: "5bc685bfa5d86e108663a567",
     singinName: ""
   };
 
@@ -27,7 +27,14 @@ class SignIn extends React.Component {
   };
 
   nameLookup = () => {
-    gqlFetch.fetchEmpById(this.state.id)
+    const query = 
+    `query Employee($id: ID) {
+      employee(id: $id) {
+        firstName
+        lastName
+      }
+    }`
+    gqlFetch.fetchById(this.state.id, query)
       .then(res => res.json())
       .then(res => this.setState({ singinName: res.data.employee.firstName }));
   };
