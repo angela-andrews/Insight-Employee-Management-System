@@ -12,6 +12,7 @@ const Employee = require('../models/employee');
 const HomeAddress = require('../models/homeAddress');
 const WorkAddress = require('../models/workAddress');
 const PositionSummary = require('../models/positionSummary');
+const PersonalSummary = require('../models/personalSummary');
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -38,6 +39,12 @@ const EmployeeType = new GraphQLObjectType({
       type: PositionSummaryType,
       resolve(parent, args) {
         return PositionSummary.findById(parent.positionSummary)
+      }
+    },
+    personalSummary: {
+      type: PersonalSummaryType,
+      resolve(parent, args) {
+        return PersonalSummary.findById(parent.personalSummary)
       }
     }
   })
@@ -82,6 +89,18 @@ const PositionSummaryType = new GraphQLObjectType({
     endDate:    {type: GraphQLString},
     timeType:   {type: GraphQLString},
     posType:    {type: GraphQLString}
+  })
+});
+
+const PersonalSummaryType = new GraphQLObjectType({
+  name: 'PersonalSummary',
+  fields: () => ({
+    id:         {type: GraphQLID},
+    employeeID: {type: GraphQLInt},
+    title:      {type: GraphQLString},
+    middleName: {type: GraphQLString},
+    dob:        {type: GraphQLString},
+    gender:     {type: GraphQLString},
   })
 });
 

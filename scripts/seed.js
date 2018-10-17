@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const employee = require('../models/employee');
 const homeAddress = require('../models/homeAddress');
 const workAddress = require('../models/workAddress');
-const positionSummary = require('../models/positionSummay');
+const positionSummary = require('../models/positionSummary');
+const personalSummary = require("../models/personalSummary");
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 
@@ -188,6 +189,44 @@ const positionSummarySeed = [
   }
 ];
 
+const personalSummarySeed = [
+  {
+    employeeID: 169497,
+    title:      "Dr",
+    middleName: "Mockernut Hickory",
+    dob:        "10/26/1989",
+    gender:     "Male"
+  }, 
+  {
+    employeeID: 441186,
+    title:      "Mrs",
+    middleName: "Contra Costa Goldfields",
+    dob:        "07/03/1960",
+    gender:     "Male"
+  }, 
+  {
+    employeeID: 544029,
+    title:      "Ms",
+    middleName: "Ducklettuce",
+    dob:        "07/05/1992",
+    gender:     "Female"
+  }, 
+  {
+    employeeID: 927675,
+    title:      "Mr",
+    middleName: "Mountain Goldenbanner",
+    dob:        "05/25/1961",
+    gender:     "Male"
+  }, 
+  {
+    employeeID: 575811,
+    title:      "Ms",
+    middleName: "Cephalaria",
+    dob:        "03/21/1992",
+    gender:     "Male"
+  }
+];
+
 async function updateDB() {
   const employeeLoadIn = await employeeUpdate();
   console.log(employeeLoadIn)
@@ -197,6 +236,8 @@ async function updateDB() {
   console.log(workLoadIn);
   const positionLoadIn = await positionUpdate();
   console.log(positionLoadIn);
+  const personalLoadIn = await personalUpdate();
+  console.log(personalLoadIn);
   process.exit(0);
 };
 
@@ -254,6 +295,21 @@ function positionUpdate() {
       })
       .then(dbUpdate => {
         resolve('Position Records Inserted');
+      });
+    });
+  });
+};
+
+function personalUpdate() {
+  return new Promise(resolve => {
+    personalSummary.collection.drop()
+    personalSummarySeed.forEach(position => {
+      personalSummary.create(position)
+      .then(dbPosition => {
+        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {personalSummary: dbPosition._id}, {new:true})
+      })
+      .then(dbUpdate => {
+        resolve('Personal Records Inserted');
       });
     });
   });
