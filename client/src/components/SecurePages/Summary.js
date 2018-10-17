@@ -19,7 +19,14 @@ class Summary extends React.Component {
   };
 
   nameLookup = () => {
-    gqlFetch.fetchEmpById(this.state.id)
+    const query = 
+    `query Employee($id: ID) {
+      employee(id: $id) {
+        firstName
+        lastName
+      }
+    }`
+    gqlFetch.fetchById(this.state.id, query)
       .then(res => res.json())
       .then(res => this.setState({ singinName: res.data.employee }));
   };
@@ -31,15 +38,15 @@ class Summary extends React.Component {
   handleDisplay() {
     switch (this.state.clicked) {
       case "home":
-        return <HomeSummary />;
+        return <HomeSummary id={this.state.id}/>;
       case "work":
-        return <WorkSummary />;
+        return <WorkSummary id={this.state.id}/>;
       case "position":
-        return <PositionSummary />;
+        return <PositionSummary id={this.state.id}/>;
       case "personal":
-        return <PersonalSummary />;
+        return <PersonalSummary id={this.state.id}/>;
       default:
-        return <HomeSummary />
+        return <HomeSummary id={this.state.id}/>
     } 
   };
 

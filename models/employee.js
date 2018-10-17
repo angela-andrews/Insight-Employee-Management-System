@@ -12,6 +12,18 @@ const employeeSchema = new Schema({
   homeAddress: {
     type: Schema.Types.ObjectId,
     ref: "HomeAddress"
+  },
+  workAddress: {
+    type: Schema.Types.ObjectId,
+    ref: "WorkAddress"
+  },
+  positionSummary: {
+    type: Schema.Types.ObjectId,
+    ref: "PositionSummary"
+  },
+  personalSummary: {
+    type: Schema.Types.ObjectId,
+    ref: "PersonalSummary"
   }
 });
 

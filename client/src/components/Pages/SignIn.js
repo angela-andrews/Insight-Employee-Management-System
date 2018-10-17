@@ -18,21 +18,35 @@ import WorkHistory from "../SecurePages/WorkHistory";
 
 class SignIn extends React.Component {
   state = {
-    id: "5bc67b273980260f65b732c9",
-    singinName: ""
+    id: null,
+    empID: 575811,
+    singinName: "",
+    loaded: false
   };
 
-  componentDidMount() {
-    this.nameLookup();
+  async componentDidMount() {
+   const dbResponse = await this.employeeLookUp();
+   this.setState({ loaded: true, id: dbResponse.id, singinName: dbResponse.firstName });
   };
 
-  nameLookup = () => {
-    gqlFetch.fetchEmpById(this.state.id)
-      .then(res => res.json())
-      .then(res => this.setState({ singinName: res.data.employee.firstName }));
+  employeeLookUp = () => {
+    return new Promise(resolve => {
+      const query = 
+      `query employeeByID($id: Int) {
+        employeeByID(employeeID: $id) {
+          firstName
+          lastName
+          id
+        }
+      }`
+      gqlFetch.fetchById(this.state.empID, query)
+       .then(res => res.json())
+       .then(res => resolve(res.data.employeeByID));
+    })
   };
+
   
-  render() {
+  content() {
     return (
       <>
         <Navbar
@@ -63,6 +77,15 @@ class SignIn extends React.Component {
       </>
     );
   }; 
+
+  render() {
+    return (
+      <>
+        {this.state.loaded ? this.content() : null}
+      </>
+    );
+  };
+
 };
 
 export default SignIn;
