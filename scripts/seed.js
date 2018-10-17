@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const employee = require('../models/employee');
 const homeAddress = require('../models/homeAddress');
+const workAddress = require('../models/workAddress');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 
@@ -88,13 +89,63 @@ const homeAddressSeed = [
     zip:        12345,
     country:    "USA",
   }
-]
+];
+
+const workAddressSeed = [
+  {
+    employeeID: 169497,
+    streetOne:  "52611 Aberg Hill",
+    streetTwo:  "3 Florence Terrrace",
+    city:       "Tulsa",
+    state:      "OK",
+    zip:        74170,
+    country:    "TN",
+  },
+  {
+    employeeID: 441186,
+    streetOne:  "45737 Crest Line Alley",
+    streetTwo:  "39 Illene Drive",
+    city:       "Washington",
+    state:      "DC",
+    zip:        20260,
+    country:    "USA",
+  },
+  {
+    employeeID: 544029,
+    streetOne:  "0 Hudson Pass",
+    streetTwo:  "7 Shasta Trail",
+    city:       "Berkeley",
+    state:      "CA",
+    zip:        94712,
+    country:    "USA",
+  },
+  {
+    employeeID: 927675,
+    streetOne:  "44806 Sugar Park",
+    streetTwo:  "9 Columbus Centter",
+    city:       "Oceanside",
+    state:      "CA",
+    zip:        92056,
+    country:    "USA",
+  },
+  {
+    employeeID: 575811,
+    streetOne:  "508 Ridgeway Terrace",
+    streetTwo:  "798 Kipling Alley",
+    city:       "Tyler",
+    state:      "TX",
+    zip:        75705,
+    country:    "USA",
+  }
+];
 
 async function updateDB() {
   const employeeLoadIn = await employeeUpdate();
   console.log(employeeLoadIn)
   const addressLoadIn = await addressUpdate();
   console.log(addressLoadIn);
+  const workLoadIn = await workUpdate();
+  console.log(workLoadIn)
   process.exit(0);
 };
 
@@ -121,9 +172,25 @@ function addressUpdate() {
         return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {homeAddress: dbAddress._id}, {new:true})
       })
       .then(dbUpdate => {
-        resolve('Address Records Inserted');
+        resolve('Home Address Records Inserted');
       });
     });
   });
 };
 
+function workUpdate() {
+  return new Promise(resolve => {
+    workAddress.collection.drop()
+    workAddressSeed.forEach(address => {
+      workAddress.create(address)
+      .then(dbAddress => {
+        return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {workAddress: dbAddress._id}, {new:true})
+      })
+      .then(dbUpdate => {
+        resolve('Work Address Records Inserted');
+      });
+    });
+  });
+};
+
+updateDB();

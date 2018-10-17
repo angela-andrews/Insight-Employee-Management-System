@@ -40,7 +40,7 @@ class Summary extends React.Component {
       case "home":
         return <HomeSummary id={this.state.id}/>;
       case "work":
-        return <WorkSummary />;
+        return <WorkSummary id={this.state.id}/>;
       case "position":
         return <PositionSummary />;
       case "personal":

@@ -10,6 +10,7 @@ const {
 
 const Employee = require('../models/employee');
 const HomeAddress = require('../models/homeAddress');
+const WorkAddress = require('../models/workAddress');
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -25,12 +26,32 @@ const EmployeeType = new GraphQLObjectType({
       resolve(parent, args) {
         return HomeAddress.findById(parent.homeAddress)
       }
+    },
+    workAddress: {
+      type: WorkAddressType,
+      resolve(parent, args) {
+        return WorkAddress.findById(parent.workAddress);
+      }
     }
   })
 });
 
 const HomeAddressType = new GraphQLObjectType({
   name: 'HomeAddress',
+  fields: () => ({
+    id:         {type: GraphQLID},
+    employeeID: {type: GraphQLInt},
+    streetOne:  {type: GraphQLString},
+    streetTwo:  {type: GraphQLString},
+    city:       {type: GraphQLString},
+    state:      {type: GraphQLString},
+    zip:        {type: GraphQLString},
+    country:    {type: GraphQLString},
+  })
+});
+
+const WorkAddressType = new GraphQLObjectType({
+  name: 'WorkAddress',
   fields: () => ({
     id:         {type: GraphQLID},
     employeeID: {type: GraphQLInt},
@@ -64,6 +85,13 @@ const RootQuery = new GraphQLObjectType({
       args: {id: {type: GraphQLID}},
       resolve(parent, args) {
         return HomeAddress.findById(args.id);
+      }
+    },
+    workAddress: {
+      type: WorkAddressType,
+      args: {id: {type: GraphQLID}},
+      resolve(parent, args) {
+        return WorkAddress.findById(args.id);
       }
     }
   }
