@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const employee = require('../models/employee');
 const homeAddress = require('../models/homeAddress');
 const workAddress = require('../models/workAddress');
+const positionSummary = require('../models/positionSummay');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 
@@ -139,13 +140,63 @@ const workAddressSeed = [
   }
 ];
 
+const positionSummarySeed = [
+  {
+    employeeID: 169497,
+    deptName:   "Accounting",
+    jobTitle:   "Office Assistant III",
+    startDate:  "09/14/2012",
+    endDate:    "02/05/2015",
+    timeType:   "Full-Time",
+    posType:    "Regular"
+  }, 
+  {
+    employeeID: 441186,
+    deptName:   "Legal",
+    jobTitle:   "Assistant Professor",
+    startDate:  "10/01/2018",
+    endDate:    "12/16/2015",
+    timeType:   "Full-Time",
+    posType:    "Regular"
+  }, 
+  {
+    employeeID: 544029,
+    deptName:   "Sales",
+    jobTitle:   "Assistant Manager",
+    startDate:  "11/14/2014",
+    endDate:    "06/07/2017",
+    timeType:   "Part-Time",
+    posType:    "Regular"
+  }, 
+  {
+    employeeID: 927675,
+    deptName:   "Training",
+    jobTitle:   "Teacher",
+    startDate:  "04/27/2013",
+    endDate:    "03/11/2018",
+    timeType:   "Full-Time",
+    posType:    "Temporary"
+  }, 
+  {
+    employeeID: 575811,
+    deptName:   "Training",
+    jobTitle:   "Business Systems Development Analyst",
+    startDate:  "10/03/2015",
+    endDate:    "06/13/2011",
+    timeType:   "Full-Time",
+    posType:    "Regular"
+  }
+];
+
 async function updateDB() {
   const employeeLoadIn = await employeeUpdate();
   console.log(employeeLoadIn)
   const addressLoadIn = await addressUpdate();
   console.log(addressLoadIn);
   const workLoadIn = await workUpdate();
-  console.log(workLoadIn)
+  console.log(workLoadIn);
+  const positionLoadIn = await positionUpdate();
+  console.log(positionLoadIn);
   process.exit(0);
 };
 
@@ -188,6 +239,21 @@ function workUpdate() {
       })
       .then(dbUpdate => {
         resolve('Work Address Records Inserted');
+      });
+    });
+  });
+};
+
+function positionUpdate() {
+  return new Promise(resolve => {
+    positionSummary.collection.drop()
+    positionSummarySeed.forEach(position => {
+      positionSummary.create(position)
+      .then(dbPosition => {
+        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {positionSummary: dbPosition._id}, {new:true})
+      })
+      .then(dbUpdate => {
+        resolve('Position Records Inserted');
       });
     });
   });

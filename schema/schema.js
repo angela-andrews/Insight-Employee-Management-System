@@ -11,6 +11,7 @@ const {
 const Employee = require('../models/employee');
 const HomeAddress = require('../models/homeAddress');
 const WorkAddress = require('../models/workAddress');
+const PositionSummary = require('../models/positionSummary');
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -31,6 +32,12 @@ const EmployeeType = new GraphQLObjectType({
       type: WorkAddressType,
       resolve(parent, args) {
         return WorkAddress.findById(parent.workAddress);
+      }
+    },
+    positionSummary: {
+      type: PositionSummaryType,
+      resolve(parent, args) {
+        return PositionSummary.findById(parent.positionSummary)
       }
     }
   })
@@ -64,6 +71,20 @@ const WorkAddressType = new GraphQLObjectType({
   })
 });
 
+const PositionSummaryType = new GraphQLObjectType({
+  name: 'PositionSummary',
+  fields: () => ({
+    id:         {type: GraphQLID},
+    employeeID: {type: GraphQLInt},
+    deptName:   {type: GraphQLString},
+    jobTitle:   {type: GraphQLString},
+    startDate:  {type: GraphQLString},
+    endDate:    {type: GraphQLString},
+    timeType:   {type: GraphQLString},
+    posType:    {type: GraphQLString}
+  })
+});
+
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
@@ -72,6 +93,13 @@ const RootQuery = new GraphQLObjectType({
       args: {id: {type: GraphQLID}},
       resolve(parent, args) {
         return Employee.findById(args.id);
+      }
+    },
+    employeeByID: {
+      type: EmployeeType,
+      args: {employeeID: {type: GraphQLInt}},
+      resolve(parent, args) {
+        return Employee.findOne({ employeeID: args.employeeID})
       }
     },
     allEmployees: {
