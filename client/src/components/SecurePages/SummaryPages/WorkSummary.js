@@ -37,7 +37,7 @@ class WorkSummary extends React.Component {
   content() {
     return (
       <fieldset>
-      <h4>Work Address</h4>
+      <h4 className="sub-title">Work Address</h4>
 
         <div className="row">
           <div className="col-lg-6">

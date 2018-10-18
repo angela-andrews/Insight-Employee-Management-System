@@ -61,7 +61,7 @@ class Summary extends React.Component {
               <button type="button" name="position" onClick={(event) => this.handleButton(event)} className="btn summary-menu">Position Summary</button>
               <button type="button" name="personal" onClick={(event) => this.handleButton(event)} className="btn summary-menu side-right">Personal Summary</button>
             </div>
-            <h1>{`${this.state.singinName.firstName} ${this.state.singinName.lastName}`}</h1>
+            <h1 className="signin-name">{`${this.state.singinName.firstName} ${this.state.singinName.lastName}`}</h1>
             <hr />
             {this.handleDisplay()}
           </div>

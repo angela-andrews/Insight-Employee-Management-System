@@ -37,7 +37,7 @@ class HomeSummary extends React.Component {
   content() {
     return (
       <fieldset>
-      <h4>Home Address</h4>
+      <h4 className="sub-title">Home Address</h4>
 
         <div className="row">
           <div className="col-lg-6">

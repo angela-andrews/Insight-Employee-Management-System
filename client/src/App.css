@@ -93,7 +93,7 @@ i {
 
 /* ------- SUMMARY component ------- */
 .summary-menu {
-  background-color: rgba(11, 115, 176);
+  background-color: rgb(39, 39, 39);
   color: rgb(255, 255, 255);
   font-size: 0.8rem !important;
   margin-bottom: 1rem;
@@ -110,10 +110,26 @@ i {
 }
 
 .summary-menu:hover {
-  background-color: rgba(22, 244, 208);
-  color: rgb(0, 0, 0);
+  background-color: rgb(11, 115, 176);
+  /* color: rgb(0, 0, 0); */
 }
 
 .container-fluid {
-  background-image: url("/images/background_dots.jpg");
+  background-image: url("/images/back.jpg");
+}
+
+.signin-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.sub-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+label {
+  font-size: 0.8rem;
+  margin-bottom: 0;
 }
