@@ -4,7 +4,7 @@ const Sidebar = () => (
   <nav className="sidebar d-flex flex-column justify-content-between">
     <div>
       <ul className="navbar-nav ml-auto">
-        <a href="/" className="nav-link-side">
+        <a href="/" className="nav-link-side active-menu">
           <li className="nav-link"><i className="fas fa-home"></i></li>
         </a>
         <a href="/" className="nav-link-side">
@@ -16,7 +16,7 @@ const Sidebar = () => (
         <a href="/" className="nav-link-side">
           <li className="nav-link"><i className="fas fa-comments"></i></li>
         </a>
-        <a href="/" className="nav-link-side active-menu">
+        <a href="/" className="nav-link-side">
           <li className="nav-link"><i className="fas fa-chart-line"></i></li>
         </a>
       </ul>

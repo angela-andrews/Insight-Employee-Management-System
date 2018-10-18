@@ -90,3 +90,30 @@ i {
   color: rgba(22, 244, 208);
   text-shadow: 2px 2px rgb(9, 121, 102);
 }
+
+/* ------- SUMMARY component ------- */
+.summary-menu {
+  background-color: rgba(11, 115, 176);
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem !important;
+  margin-bottom: 1rem;
+  border-radius: 0 !important;
+  padding: 0.5rem 2rem !important;
+}
+
+.summary-menu:first-child {
+  border-bottom-left-radius: 15px !important;
+}
+
+.summary-menu:last-child {
+  border-bottom-right-radius: 15px !important;
+}
+
+.summary-menu:hover {
+  background-color: rgba(22, 244, 208);
+  color: rgb(0, 0, 0);
+}
+
+.container-fluid {
+  background-image: url("/images/background_dots.jpg");
+}
