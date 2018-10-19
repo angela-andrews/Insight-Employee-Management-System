@@ -62,14 +62,14 @@ class SignIn extends React.Component {
               <Sidebar />
               <Menu />
               <div>
-                <Route exact path="/signin/summary"   render={() => <Summary id={this.state.id} />} />
-                <Route exact path="/signin/education" component= { Education }      />
-                <Route exact path="/signin/awards"    component= { Awards }         />
-                <Route exact path="/signin/certs"     component= { Certifications } />
-                <Route exact path="/signin/goals"     component= { GoalsObjectives }/>
-                <Route exact path="/signin/skills"    component= { Skills }         />
-                <Route exact path="/signin/whistory"  component= { WorkHistory }    />
-                <Route exact path="/signin/newgoal"   component= { NewGoal }        />
+                <Route exact path="/signin/summary"   render=     {() => <Summary id={this.state.id} />}/>
+                <Route exact path="/signin/education" render=     {() => <Education id={this.state.id} />}/>
+                <Route exact path="/signin/awards"    component=  { Awards }/>
+                <Route exact path="/signin/certs"     component=  { Certifications }/>
+                <Route exact path="/signin/goals"     component=  { GoalsObjectives }/>
+                <Route exact path="/signin/skills"    component=  { Skills }/>
+                <Route exact path="/signin/whistory"  render=     {() => <WorkHistory id={this.state.id} />}/>
+                <Route exact path="/signin/newgoal"   component=  { NewGoal }/>
               </div>
             </div>
           </div>

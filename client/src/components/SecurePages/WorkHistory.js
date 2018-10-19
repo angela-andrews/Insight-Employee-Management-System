@@ -1,47 +1,77 @@
-import React from 'react';
+import React from "react";
+import gqlFetch from "../../utils/gqlFetch";
 
-const WorkHistory = () => (
-  <div className="container">
-    <div className="row">
-      <div className="col-sm-12">
-        <h4>Area Operations Manager</h4>
-        <div className="job-title d-flex justify-content-between">
-          <p>Family Dollar</p>            
-          <p>2013 - Present</p>
-          <p>Greater Philadelphia Area</p>
-        </div>
-        <ul>
-          <li>Lead multi-unit operational business processes for Fortune 500 company, deliver $45M in annual sales while managing $3M payroll budget for 19 locations throughout Philadelphia, Bucks County, and Montgomery County </li>
-          <li>Analyze operational performance reports and create strategic action plans to achieve year-over-year sales comp growth of +4%</li>
-          <li>Implement marketing/advertising sets and process improvement programs to achieve top 10% of Controllable Profit for company performance </li>
-          <li>Review shrinkage and operating performance standards, recognize trends and apply process improvements to maintain shrink below-designated company standards </li>
-          <li>Coordinate financial and operational analyses and prepare business reports for Store Operations </li>
-          <li>Hire, train and manage 200-member team; facilitate professional development training, team building, and mentorship to lead in significant career progression </li>
-          <li>Lead and coach Performance Mangers in the implementation of company policies and procedures</li>
-        </ul>
-        <hr />
+class WorkHistory extends React.Component {
+  state = {
+    id: this.props.id,
+    workHistory: [],
+    loaded: false
+  };
+  
+  async componentDidMount() {
+    const dbResponse = await this.workHistoryLookup();
+    this.setState({ loaded: true, workHistory: dbResponse })
+  };
 
-        <div>
-          <h4>Area Operations Manager</h4>
-          <div className="job-title d-flex justify-content-between">
-            <p>Family Dollar</p>            
-            <p>2013 - Present</p>
-            <p>Greater Philadelphia Area</p>
+  workHistoryLookup = () => {
+    return new Promise(resolve => {
+      const query = 
+      `query Employee($id: ID) {
+        employee(id: $id) {
+          workHistory {
+            id
+            jobTitle
+            companyName
+            startDate
+            endDate
+            location
+            bullet1
+            bullet2
+            bullet3
+            bullet4
+          }
+        }
+      }`
+    gqlFetch.fetchById(this.state.id, query)
+      .then(res => res.json())
+      .then(res => resolve(res.data.employee.workHistory))
+    })
+  };
+
+  content() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12">
+            {this.state.workHistory.map(element => (<div key={element.id}>
+              <h4>{element.jobTitle}</h4>
+              <div className="job-title d-flex justify-content-between">
+                <p>{element.companyName}</p>            
+                <p>{element.startDate} - {element.endDate}</p>
+                <p>{element.location}</p>
+              </div>
+              <ul>
+                <li>{element.bullet1}</li>
+                <li>{element.bullet2}</li>
+                <li>{element.bullet3}</li>
+                <li>{element.bullet4}</li>
+              </ul>
+              <hr />
+            </div>))}
           </div>
         </div>
-          <ul>
-            <li>Lead multi-unit operational business processes for Fortune 500 company, deliver $45M in annual sales while managing $3M payroll budget for 19 locations throughout Philadelphia, Bucks County, and Montgomery County </li>
-            <li>Analyze operational performance reports and create strategic action plans to achieve year-over-year sales comp growth of +4%</li>
-            <li>Implement marketing/advertising sets and process improvement programs to achieve top 10% of Controllable Profit for company performance </li>
-            <li>Review shrinkage and operating performance standards, recognize trends and apply process improvements to maintain shrink below-designated company standards </li>
-            <li>Coordinate financial and operational analyses and prepare business reports for Store Operations </li>
-            <li>Hire, train and manage 200-member team; facilitate professional development training, team building, and mentorship to lead in significant career progression </li>
-            <li>Lead and coach Performance Mangers in the implementation of company policies and procedures</li>
-          </ul>
-          <hr />
       </div>
-    </div>
-  </div>
-)
+    );
+  };
+
+  render() {
+    return (
+      <>
+        {this.state.loaded ? this.content() : null}
+      </>
+    );
+  };
+};
+
 
 export default WorkHistory;

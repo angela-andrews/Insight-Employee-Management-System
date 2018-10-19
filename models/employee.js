@@ -24,7 +24,19 @@ const employeeSchema = new Schema({
   personalSummary: {
     type: Schema.Types.ObjectId,
     ref: "PersonalSummary"
-  }
+  },
+  workHistory: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "WorkHistory"
+    }
+  ],
+  education: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Education"
+    }
+  ]
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
