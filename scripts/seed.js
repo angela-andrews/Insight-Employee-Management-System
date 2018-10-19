@@ -7,6 +7,7 @@ const positionSummary = require('../models/positionSummary');
 const personalSummary = require("../models/personalSummary");
 const workHistory = require("../models/workHistory");
 const education = require('../models/education');
+const award = require('../models/award');
 // Seed File Includes
 const employeeSeed  = require('./employeeSeed');
 const homeAddressSeed = require('./homeAddressSeed');
@@ -15,6 +16,7 @@ const positionSummarySeed = require('./positionSummarySeed');
 const workAddressSeed = require('./workAddressSeed');
 const workHistorySeed = require('./workHistorySeed');
 const educationSeed = require('./educationSeed');
+const awardSeed = require('./awardSeed');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
@@ -51,6 +53,7 @@ const updateDB = async () => {
     console.log(await personalSeedLoad());
     console.log(await workHistorySeedLoad());
     console.log(await educationSeedLoad());
+    console.log(await awardSeedLoad());
     console.log(`
     *******************************
      All Collections Seeded!
@@ -67,7 +70,7 @@ const updateDB = async () => {
 */
 const dropModel = async () => {
   return new Promise((resolve,reject) => {
-    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary, workHistory, education]
+    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary, workHistory, education, award]
     let dropCollectionPromises = [];
     dbNames.forEach(element => {
       dropCollectionPromises.push(dropCollection(element))
@@ -314,6 +317,42 @@ const educationSeedDB = element => {
     })
     .then(response => {
       console.log(`Education Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Education Load Functions *** *** *** *** *** ***
+*/
+const awardSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    awardSeed.forEach(element => {
+      seedPromises.push(awardSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+        Award Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const awardSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new award(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {$push: {award: response._id}}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Award Record Inserted`)
       resolve(response);
     })
     .catch(err => reject(err));
