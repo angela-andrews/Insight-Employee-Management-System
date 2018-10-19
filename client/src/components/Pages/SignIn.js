@@ -63,7 +63,7 @@ class SignIn extends React.Component {
               <Menu />
               <div>
                 <Route exact path="/signin/summary"   render=     {() => <Summary id={this.state.id} />}/>
-                <Route exact path="/signin/education" component=  { Education }/>
+                <Route exact path="/signin/education" render=     {() => <Education id={this.state.id} />}/>
                 <Route exact path="/signin/awards"    component=  { Awards }/>
                 <Route exact path="/signin/certs"     component=  { Certifications }/>
                 <Route exact path="/signin/goals"     component=  { GoalsObjectives }/>
