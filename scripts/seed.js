@@ -5,12 +5,14 @@ const homeAddress = require('../models/homeAddress');
 const workAddress = require('../models/workAddress');
 const positionSummary = require('../models/positionSummary');
 const personalSummary = require("../models/personalSummary");
+const workHistory = require("../models/workHistory");
 // Seed File Includes
 const employeeSeed  = require('./employeeSeed');
 const homeAddressSeed = require('./homeAddressSeed');
 const personalSummarySeed = require('./personalSummarySeed');
 const positionSummarySeed = require('./positionSummarySeed');
 const workAddressSeed = require('./workAddressSeed');
+const workHistorySeed = require('./workHistorySeed');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
@@ -45,6 +47,7 @@ const updateDB = async () => {
     console.log(await workSeedLoad());
     console.log(await positionSeedLoad());
     console.log(await personalSeedLoad());
+    console.log(await workHistorySeedLoad());
     console.log(`
     *******************************
      All Collections Seeded!
@@ -61,7 +64,7 @@ const updateDB = async () => {
 */
 const dropModel = async () => {
   return new Promise((resolve,reject) => {
-    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary]
+    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary, workHistory]
     let dropCollectionPromises = [];
     dbNames.forEach(element => {
       dropCollectionPromises.push(dropCollection(element))
@@ -236,6 +239,42 @@ const personalSeedDB = element => {
     })
     .then(response => {
       console.log(`Personal Summary Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Work History Load Functions *** *** *** *** *** ***
+*/
+const workHistorySeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    workHistorySeed.forEach(element => {
+      seedPromises.push(workHistorySeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+       Work History Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const workHistorySeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new workHistory(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {$push: {workHistory: response._id}}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Work History Record Inserted`)
       resolve(response);
     })
     .catch(err => reject(err));
