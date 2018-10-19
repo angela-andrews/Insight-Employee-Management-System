@@ -1,0 +1,47 @@
+module.exports = workAddressSeed = [
+  {
+    employeeID: 169497,
+    streetOne:  "52611 Aberg Hill",
+    streetTwo:  "3 Florence Terrrace",
+    city:       "Tulsa",
+    state:      "OK",
+    zip:        74170,
+    country:    "TN",
+  },
+  {
+    employeeID: 441186,
+    streetOne:  "45737 Crest Line Alley",
+    streetTwo:  "39 Illene Drive",
+    city:       "Washington",
+    state:      "DC",
+    zip:        20260,
+    country:    "USA",
+  },
+  {
+    employeeID: 544029,
+    streetOne:  "0 Hudson Pass",
+    streetTwo:  "7 Shasta Trail",
+    city:       "Berkeley",
+    state:      "CA",
+    zip:        94712,
+    country:    "USA",
+  },
+  {
+    employeeID: 927675,
+    streetOne:  "44806 Sugar Park",
+    streetTwo:  "9 Columbus Centter",
+    city:       "Oceanside",
+    state:      "CA",
+    zip:        92056,
+    country:    "USA",
+  },
+  {
+    employeeID: 575811,
+    streetOne:  "508 Ridgeway Terrace",
+    streetTwo:  "798 Kipling Alley",
+    city:       "Tyler",
+    state:      "TX",
+    zip:        75705,
+    country:    "USA",
+  }
+];
