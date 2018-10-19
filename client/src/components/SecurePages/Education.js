@@ -2,33 +2,62 @@ import React from 'react';
 import gqlFetch from "../../utils/gqlFetch";
 
 class Education extends React.Component {
-  state= {}
+  state= {
+    id: this.props.id,
+    education: [],
+    loaded: false
+  };
 
-  render() {
+  async componentDidMount() {
+    const dbResponse = await this.educationLookup();
+    this.setState({ loaded: true, education: dbResponse });
+  };
+
+  educationLookup() {
+    return new Promise(resolve => {
+      const query = 
+      `query Employee($id: ID) {
+        employee(id: $id) {
+          education {
+            id
+            schoolName
+            degree
+            startDate
+            endDate
+            bullet1
+            bullet2
+          }
+        }
+      }`
+    gqlFetch.fetchById(this.state.id, query)
+      .then(res => res.json())
+      .then(res => resolve(res.data.employee.education))
+    })
+  };
+
+  content() {
     return(
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            <div>
-              <h4>Universidad de Buenos Aires</h4>
-              <p className="education-info">Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-              <p className="education-info">2002 - 2005</p>
-              <hr />
-            </div>
-            <div>
-              <h4>University of Pennsylvania</h4>
-              <p className="education-info">Certificate, Full Stack Development</p>
-              <p className="education-info">2018 - 2018</p>
+            {this.state.education.map(element => (<div key={element.id}>
+              <h4>{element.schoolName}</h4>
+              <p className="education-info">{element.degree}</p>
+              <p className="education-info">{element.startDate} - {element.endDate}</p>            
               <ul>
-                <li className="education-info">Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</li>
-                <li className="education-info">Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</li>
+                <li className="education-info">{element.bullet1}</li>
+                <li className="education-info">{element.bullet2}</li>
               </ul>
               <hr />
-            </div>
+            </div>))}
           </div>
         </div>
       </div>
     );
+  };
+
+  render() {
+    return (<>{this.state.loaded ? this.content() : null}</>)
   };
 };
 

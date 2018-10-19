@@ -8,7 +8,7 @@ const educationSchema = new Schema({
   startDate:  { type: Number },
   endDate:    { type: Number },
   bullet1:    { type: String },
-  bullet1:    { type: String },
+  bullet2:    { type: String },
 });
 
 const Education = mongoose.model("Education", educationSchema);
