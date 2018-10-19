@@ -6,7 +6,7 @@ const Jumbotron = () => (
       <p className="jumbotron-subtitle">GET INSIGHT TODAY</p>
       <h1>Success is a choice.</h1>
       <p className="jumbotron-content">Understanding what makes a company successful can be frustating and 
-      costly. insight helps you communicate your company's goals and expectations in a clear and effective
+      costly. <span className="insight-name">insight</span> helps you communicate your company's goals and expectations in a clear and effective
       manner.</p>
     </div>
     <div className="carousel-inner mx-auto">
