@@ -14,6 +14,7 @@ li {
 
 .container {
   margin-top: 2rem;
+  max-width: 79vw;
 }
 
 .no-margin {
@@ -155,7 +156,6 @@ label {
 }
 
 /* ------- WORK HISTORY component ------- */
-
 .job-title, h4 {
   border-left: 10px solid rgb(11, 115, 176);
   padding: 0 1rem;
@@ -168,4 +168,9 @@ label {
 
 .job-title p, h4 {
   margin: 0;
+}
+
+/* ------- EDUCATION component ------- */
+.education-info {
+  margin: 0 0 0 1.6rem;
 }
