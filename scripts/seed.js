@@ -1,318 +1,247 @@
 const mongoose = require("mongoose");
+// Model Includes
 const employee = require('../models/employee');
 const homeAddress = require('../models/homeAddress');
 const workAddress = require('../models/workAddress');
 const positionSummary = require('../models/positionSummary');
 const personalSummary = require("../models/personalSummary");
+// Seed File Includes
+const employeeSeed  = require('./employeeSeed');
+const homeAddressSeed = require('./homeAddressSeed');
+const personalSummarySeed = require('./personalSummarySeed');
+const positionSummarySeed = require('./positionSummarySeed');
+const workAddressSeed = require('./workAddressSeed');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
+// Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+// by default, you need to set it to false.
+mongoose.set('useFindAndModify', false);
 
-const employeeSeed = [
-  {
-    employeeID:     575811,
-    firstName:      "Leanne",
-    lastName:       "Graham",
-    position:       "Technical Support",
-    supervisor:     "Mrs. Dennis Schulist"
-  },
-  {
-    employeeID:     927675,
-    firstName:      "Ervin",
-    lastName:       "Howell",
-    position:       "Accountant",
-    supervisor:     "Mrs. Dennis Schulist"
-  },
-  {
-    employeeID:     544029,
-    firstName:      "Clementine",
-    lastName:       "Bauch",
-    position:       "Dog Walker",
-    supervisor:     "Chelsey Dietrich"
-  },
-  {
-    employeeID:     441186,
-    firstName:      "Patricia",
-    lastName:       "Lebsack",
-    position:       "Developer",
-    supervisor:     "Mrs. Dennis Schulist",
-  },
-  {
-    employeeID:     169497,
-    firstName:      "Chelsey",
-    lastName:       "Dietrich",
-    position:       "Office Manager",
-    supervisor:     "Mrs. Dennis Schulist",
-  },
-];
-
-const homeAddressSeed = [
-  {
-    employeeID: 169497,
-    streetOne:  "Skiles Walks",
-    streetTwo:  "Suite 351",
-    city:       "Roscoeview",
-    state:      "VT",
-    zip:        12457,
-    country:    "TN",
-  },
-  {
-    employeeID: 441186,
-    streetOne:  "Hoeger Mall",
-    streetTwo:  "Apt. 692",
-    city:       "South Elvis",
-    state:      "CA",
-    zip:        24681,
-    country:    "USA",
-  },
-  {
-    employeeID: 544029,
-    streetOne:  "Douglas Extension",
-    streetTwo:  "Suite 847",
-    city:       "McKenziehaven",
-    state:      "MD",
-    zip:        13579,
-    country:    "USA",
-  },
-  {
-    employeeID: 927675,
-    streetOne:  "Victor Plains",
-    streetTwo:  "Suite 879",
-    city:       "Wisokyburgh",
-    state:      "NJ",
-    zip:        67890,
-    country:    "USA",
-  },
-  {
-    employeeID: 575811,
-    streetOne:  "Kulas Light",
-    streetTwo:  "Apt. 556",
-    city:       "Gwenborough",
-    state:      "PA",
-    zip:        12345,
-    country:    "USA",
+const updateDB = async () => {
+  try {
+    console.log((`
+    ******************************
+     Starting to Drop Collections
+    ******************************
+    `))
+    console.log(await dropModel());
+    console.log(`
+    ******************************
+      Starting to Seed Employees
+    ******************************
+    `)
+    console.log(await employeeLoad());
+    console.log(`
+    ******************************
+      Employee Collection Seeded
+    ******************************
+      `)
+    console.log(`
+    *******************************
+     Starting to Seed Collections 
+    *******************************
+      `)
+    console.log(await homeSeedLoad());
+    console.log(await workSeedLoad());
+    console.log(await positionSeedLoad());
+    console.log(await personalSeedLoad());
+    console.log(`
+    *******************************
+     All Collections Seeded!
+    *******************************
+      `)
+    process.exit(0);
+  } catch(err) {
+    console.log(err)
+    process.exit(1);
   }
-];
-
-const workAddressSeed = [
-  {
-    employeeID: 169497,
-    streetOne:  "52611 Aberg Hill",
-    streetTwo:  "3 Florence Terrrace",
-    city:       "Tulsa",
-    state:      "OK",
-    zip:        74170,
-    country:    "TN",
-  },
-  {
-    employeeID: 441186,
-    streetOne:  "45737 Crest Line Alley",
-    streetTwo:  "39 Illene Drive",
-    city:       "Washington",
-    state:      "DC",
-    zip:        20260,
-    country:    "USA",
-  },
-  {
-    employeeID: 544029,
-    streetOne:  "0 Hudson Pass",
-    streetTwo:  "7 Shasta Trail",
-    city:       "Berkeley",
-    state:      "CA",
-    zip:        94712,
-    country:    "USA",
-  },
-  {
-    employeeID: 927675,
-    streetOne:  "44806 Sugar Park",
-    streetTwo:  "9 Columbus Centter",
-    city:       "Oceanside",
-    state:      "CA",
-    zip:        92056,
-    country:    "USA",
-  },
-  {
-    employeeID: 575811,
-    streetOne:  "508 Ridgeway Terrace",
-    streetTwo:  "798 Kipling Alley",
-    city:       "Tyler",
-    state:      "TX",
-    zip:        75705,
-    country:    "USA",
-  }
-];
-
-const positionSummarySeed = [
-  {
-    employeeID: 169497,
-    deptName:   "Accounting",
-    jobTitle:   "Office Assistant III",
-    startDate:  "09/14/2012",
-    endDate:    "02/05/2015",
-    timeType:   "Full-Time",
-    posType:    "Regular"
-  }, 
-  {
-    employeeID: 441186,
-    deptName:   "Legal",
-    jobTitle:   "Assistant Professor",
-    startDate:  "10/01/2018",
-    endDate:    "12/16/2015",
-    timeType:   "Full-Time",
-    posType:    "Regular"
-  }, 
-  {
-    employeeID: 544029,
-    deptName:   "Sales",
-    jobTitle:   "Assistant Manager",
-    startDate:  "11/14/2014",
-    endDate:    "06/07/2017",
-    timeType:   "Part-Time",
-    posType:    "Regular"
-  }, 
-  {
-    employeeID: 927675,
-    deptName:   "Training",
-    jobTitle:   "Teacher",
-    startDate:  "04/27/2013",
-    endDate:    "03/11/2018",
-    timeType:   "Full-Time",
-    posType:    "Temporary"
-  }, 
-  {
-    employeeID: 575811,
-    deptName:   "Training",
-    jobTitle:   "Business Systems Development Analyst",
-    startDate:  "10/03/2015",
-    endDate:    "06/13/2011",
-    timeType:   "Full-Time",
-    posType:    "Regular"
-  }
-];
-
-const personalSummarySeed = [
-  {
-    employeeID: 169497,
-    title:      "Dr",
-    middleName: "Mockernut Hickory",
-    dob:        "10/26/1989",
-    gender:     "Male"
-  }, 
-  {
-    employeeID: 441186,
-    title:      "Mrs",
-    middleName: "Contra Costa Goldfields",
-    dob:        "07/03/1960",
-    gender:     "Male"
-  }, 
-  {
-    employeeID: 544029,
-    title:      "Ms",
-    middleName: "Ducklettuce",
-    dob:        "07/05/1992",
-    gender:     "Female"
-  }, 
-  {
-    employeeID: 927675,
-    title:      "Mr",
-    middleName: "Mountain Goldenbanner",
-    dob:        "05/25/1961",
-    gender:     "Male"
-  }, 
-  {
-    employeeID: 575811,
-    title:      "Ms",
-    middleName: "Cephalaria",
-    dob:        "03/21/1992",
-    gender:     "Male"
-  }
-];
-
-async function updateDB() {
-  const employeeLoadIn = await employeeUpdate();
-  console.log(employeeLoadIn)
-  const addressLoadIn = await addressUpdate();
-  console.log(addressLoadIn);
-  const workLoadIn = await workUpdate();
-  console.log(workLoadIn);
-  const positionLoadIn = await positionUpdate();
-  console.log(positionLoadIn);
-  const personalLoadIn = await personalUpdate();
-  console.log(personalLoadIn);
-  process.exit(0);
-};
-
-function employeeUpdate() {
-  return new Promise(resolve => {
-    employee
-    .deleteMany()
-    .then(() => employee.collection.insertMany(employeeSeed))
-    .then(data => {
-      resolve(data.result.n + " Employee records inserted!");
+}
+/*
+*** *** *** *** *** *** Drop Collection Functions *** *** *** *** *** ***
+*/
+const dropModel = async () => {
+  return new Promise((resolve,reject) => {
+    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary]
+    let dropCollectionPromises = [];
+    dbNames.forEach(element => {
+      dropCollectionPromises.push(dropCollection(element))
+    });
+    Promise.all(dropCollectionPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+          All Collections Dropped
+      ******************************
+      `);
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => reject(err));
   });
 };
-
-function addressUpdate() {
+const dropCollection = model => {
   return new Promise(resolve => {
-    homeAddress.collection.drop()
-    homeAddressSeed.forEach(address => {
-      homeAddress.create(address)
-      .then(dbAddress => {
-        return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {homeAddress: dbAddress._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Home Address Records Inserted');
-      });
-    });
+    model.deleteMany()
+    .then(response => {
+      console.log(`${response.n} Records Droped from ${model.modelName} Model`)
+      resolve(response)
+    }) 
+    .catch(err => console.log(err));
   });
 };
-
-function workUpdate() {
-  return new Promise(resolve => {
-    workAddress.collection.drop()
-    workAddressSeed.forEach(address => {
-      workAddress.create(address)
-      .then(dbAddress => {
-        return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {workAddress: dbAddress._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Work Address Records Inserted');
-      });
-    });
+/*
+*** *** *** *** *** *** Employee Load Functions *** *** *** *** *** ***
+*/
+const employeeLoad = () => {
+  return new Promise((resolve, reject) => {
+    employee.collection.insertMany(employeeSeed)
+      .then(data => resolve(`${data.result.n} Employee Records Inserted`))
+      .catch(err => reject(err))
   });
 };
-
-function positionUpdate() {
-  return new Promise(resolve => {
-    positionSummary.collection.drop()
-    positionSummarySeed.forEach(position => {
-      positionSummary.create(position)
-      .then(dbPosition => {
-        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {positionSummary: dbPosition._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Position Records Inserted');
-      });
+/*
+*** *** *** *** *** *** Employee Address Load Functions *** *** *** *** *** ***
+*/
+const homeSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    homeAddressSeed.forEach(element => {
+      seedPromises.push(homeSeedDB(element));
     });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+      Home Address Collection Seeded
+      ******************************
+      `);
+    })
+    .catch(err => reject(err));
   });
 };
-
-function personalUpdate() {
-  return new Promise(resolve => {
-    personalSummary.collection.drop()
-    personalSummarySeed.forEach(position => {
-      personalSummary.create(position)
-      .then(dbPosition => {
-        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {personalSummary: dbPosition._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Personal Records Inserted');
-      });
-    });
+const homeSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new homeAddress(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {homeAddress: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Home Address Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
   });
 };
-
+/*
+*** *** *** *** *** *** Work Address Load Functions *** *** *** *** *** ***
+*/
+const workSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    workAddressSeed.forEach(element => {
+      seedPromises.push(workSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+      Work Address Collection Seeded
+      ******************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const workSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new workAddress(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {workAddress: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Work Address Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Position Summary Load Functions *** *** *** *** *** ***
+*/
+const positionSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    positionSummarySeed.forEach(element => {
+      seedPromises.push(positionSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+      Position Summary Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const positionSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new positionSummary(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {positionSummary: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Position Summary Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Personal Summary Load Functions *** *** *** *** *** ***
+*/
+const personalSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    personalSummarySeed.forEach(element => {
+      seedPromises.push(personalSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+      Personal Summary Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const personalSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new personalSummary(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {personalSummary: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Personal Summary Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Update the Database Call *** *** *** *** *** ***
+*/
 updateDB();

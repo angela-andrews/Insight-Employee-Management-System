@@ -1,0 +1,47 @@
+module.exports = homeAddressSeed = [
+  {
+    employeeID: 169497,
+    streetOne:  "Skiles Walks",
+    streetTwo:  "Suite 351",
+    city:       "Roscoeview",
+    state:      "VT",
+    zip:        12457,
+    country:    "TN",
+  },
+  {
+    employeeID: 441186,
+    streetOne:  "Hoeger Mall",
+    streetTwo:  "Apt. 692",
+    city:       "South Elvis",
+    state:      "CA",
+    zip:        24681,
+    country:    "USA",
+  },
+  {
+    employeeID: 544029,
+    streetOne:  "Douglas Extension",
+    streetTwo:  "Suite 847",
+    city:       "McKenziehaven",
+    state:      "MD",
+    zip:        13579,
+    country:    "USA",
+  },
+  {
+    employeeID: 927675,
+    streetOne:  "Victor Plains",
+    streetTwo:  "Suite 879",
+    city:       "Wisokyburgh",
+    state:      "NJ",
+    zip:        67890,
+    country:    "USA",
+  },
+  {
+    employeeID: 575811,
+    streetOne:  "Kulas Light",
+    streetTwo:  "Apt. 556",
+    city:       "Gwenborough",
+    state:      "PA",
+    zip:        12345,
+    country:    "USA",
+  }
+];
