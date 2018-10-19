@@ -14,6 +14,7 @@ const WorkAddress = require('../models/workAddress');
 const PositionSummary = require('../models/positionSummary');
 const PersonalSummary = require('../models/personalSummary');
 const WorkHistory = require('../models/workHistory');
+const Education = require('../models/education');
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -52,6 +53,12 @@ const EmployeeType = new GraphQLObjectType({
       type: new GraphQLList(WorkHistoryType),
       resolve(parent, args) {
         return WorkHistory.find({employeeID: parent.employeeID})
+      }
+    },
+    education: {
+      type: new GraphQLList(EducationType),
+      resolve(parent, args) {
+        return Education.find({employeeID: parent.employeeID})
       }
     }
   })
@@ -125,6 +132,20 @@ const WorkHistoryType = new GraphQLObjectType({
     bullet2:      {type: GraphQLString},
     bullet3:      {type: GraphQLString},
     bullet4:      {type: GraphQLString},
+  })
+});
+
+const EducationType = new GraphQLObjectType({
+  name: 'Education',
+  fields: () => ({
+    id:         {type: GraphQLID},
+    employeeID: {type: GraphQLInt},
+    schoolName: {type: GraphQLString},
+    degree:     {type: GraphQLString},
+    startDate:  {type: GraphQLInt},
+    endDate:    {type: GraphQLInt},
+    bullet1:    {type: GraphQLString},
+    bullet2:    {type: GraphQLString}
   })
 });
 
