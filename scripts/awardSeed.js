@@ -1,4 +1,4 @@
-[
+module.exports = awardSeed = [
   {
     "employeeID": 169497,
     "type": "Starbucks",
