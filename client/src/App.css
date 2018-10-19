@@ -50,12 +50,12 @@ li {
 
 @keyframes nav-color {
   from {
-    background-color: rgba(22, 244, 208);
+    background-color: rgb(22, 244, 208);
     border-radius: 20px;
   }
   
   to {
-    background-color: rgba(11, 115, 176);
+    background-color: rgb(11, 115, 176);
     border-radius: 20px;
   }
 }
@@ -63,6 +63,56 @@ li {
 .nav-link-top:hover {
   animation: nav-color 0.6s forwards;
   color: rgb(255, 255, 255) !important;
+}
+
+/* ------- HOME component ------- */
+.jumbotron-info {
+  background-color: rgb(11, 115, 176);
+  color: rgb(255, 255, 255);
+  padding: 2rem 3rem 2rem 2rem;
+}
+
+.jumbotron-info h1 {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  text-align: right;
+  padding: 0.5rem 0;
+}
+
+.jumbotron-subtitle {
+  margin: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+
+.jumbotron-content {
+  margin-top: 1rem;
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+
+.article {
+  width: 70%;
+  margin: 6rem 0;
+}
+
+/* .article-div {
+  background-color: rgb(58, 58, 58);
+} */
+
+.footer {
+  padding: 2rem;
+  background-color: rgb(11, 115, 176);
+}
+
+.copyright {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem;
 }
 
 /* ------- SIDE-MENU component ------- */
