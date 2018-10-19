@@ -34,6 +34,23 @@ class Awards extends React.Component {
     })
   };    
 
+  displayImage(element) {
+    switch (element.type) {
+      case "Starbucks":
+        return(<td><img src="../images/starbucks.jpg" alt="starbucks"></img></td>);
+      case "Movie":
+        return(<td><img src="../images/movie.jpg" alt="movie"></img></td>);
+      case "Restaurant":
+        return(<td><img src="../images/rest.png" alt="restaurant"></img></td>);
+      case "Amazon":
+        return(<td><img src="../images/amazon.jpg" alt="amazon"></img></td>);
+      case "iTunes":
+        return(<td><img src="../images/itunes.jpg" alt="itunes"></img></td>);
+      default:
+        return(<td><img src="../images/movie.jpg" alt="movie"></img></td>)
+    }
+  };
+
   content() {
     return (
       <div className="container-fluid">
@@ -45,7 +62,7 @@ class Awards extends React.Component {
                   <th scope="col">#</th>
                   <th scope="col">Gift</th>
                   <th scope="col">Date</th>
-                  <th scope="col">Vale / Location</th>
+                  <th scope="col">Value / Location</th>
                   <th scope="col">Reason</th>
                   <th scope="col">Status</th>
                 </tr>
@@ -54,7 +71,7 @@ class Awards extends React.Component {
                 {this.state.awards.map((element, index) => (
                   <tr key={element.id}>
                     <th scope="row">{`${index +1}`}</th>
-                    <td><img src="../images/movie50.png" alt="movie"></img></td>
+                    {this.displayImage(element)}
                     <td>{element.date}</td>
                     <td>{element.dollarAmount}</td>
                     <td>{element.reason}</td>
