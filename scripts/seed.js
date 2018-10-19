@@ -13,93 +13,235 @@ const positionSummarySeed = require('./positionSummarySeed');
 const workAddressSeed = require('./workAddressSeed');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
+// Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+// by default, you need to set it to false.
+mongoose.set('useFindAndModify', false);
 
-async function updateDB() {
-  const employeeLoadIn = await employeeUpdate();
-  console.log(employeeLoadIn)
-  const addressLoadIn = await addressUpdate();
-  console.log(addressLoadIn);
-  const workLoadIn = await workUpdate();
-  console.log(workLoadIn);
-  const positionLoadIn = await positionUpdate();
-  console.log(positionLoadIn);
-  const personalLoadIn = await personalUpdate();
-  console.log(personalLoadIn);
-  process.exit(0);
-};
-
-function employeeUpdate() {
-  return new Promise(resolve => {
-    employee
-    .deleteMany()
-    .then(() => employee.collection.insertMany(employeeSeed))
-    .then(data => {
-      resolve(data.result.n + " Employee records inserted!");
+const updateDB = async () => {
+  try {
+    console.log((`
+    ******************************
+     Starting to Drop Collections
+    ******************************
+    `))
+    console.log(await dropModel());
+    console.log(`
+    ******************************
+      Starting to Seed Employees
+    ******************************
+    `)
+    console.log(await employeeLoad());
+    console.log(`
+    ******************************
+      Employee Collection Seeded
+    ******************************
+      `)
+    console.log(`
+    *******************************
+     Starting to Seed Collections 
+    *******************************
+      `)
+    console.log(await homeSeedLoad());
+    console.log(await workSeedLoad());
+    console.log(await positionSeedLoad());
+    console.log(await personalSeedLoad());
+    console.log(`
+    *******************************
+     All Collections Seeded!
+    *******************************
+      `)
+    process.exit(0);
+  } catch(err) {
+    console.log(err)
+    process.exit(1);
+  }
+}
+/*
+*** *** *** *** *** *** Drop Collection Functions *** *** *** *** *** ***
+*/
+const dropModel = async () => {
+  return new Promise((resolve,reject) => {
+    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary]
+    let dropCollectionPromises = [];
+    dbNames.forEach(element => {
+      dropCollectionPromises.push(dropCollection(element))
+    });
+    Promise.all(dropCollectionPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+          All Collections Dropped
+      ******************************
+      `);
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => reject(err));
   });
 };
-
-function addressUpdate() {
+const dropCollection = model => {
   return new Promise(resolve => {
-    homeAddress.collection.drop()
-    homeAddressSeed.forEach(address => {
-      homeAddress.create(address)
-      .then(dbAddress => {
-        return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {homeAddress: dbAddress._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Home Address Records Inserted');
-      });
-    });
+    model.deleteMany()
+    .then(response => {
+      console.log(`${response.n} Records Droped from ${model.modelName} Model`)
+      resolve(response)
+    }) 
+    .catch(err => console.log(err));
   });
 };
-
-function workUpdate() {
-  return new Promise(resolve => {
-    workAddress.collection.drop()
-    workAddressSeed.forEach(address => {
-      workAddress.create(address)
-      .then(dbAddress => {
-        return employee.findOneAndUpdate({ employeeID: dbAddress.employeeID}, {workAddress: dbAddress._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Work Address Records Inserted');
-      });
-    });
+/*
+*** *** *** *** *** *** Employee Load Functions *** *** *** *** *** ***
+*/
+const employeeLoad = () => {
+  return new Promise((resolve, reject) => {
+    employee.collection.insertMany(employeeSeed)
+      .then(data => resolve(`${data.result.n} Employee Records Inserted`))
+      .catch(err => reject(err))
   });
 };
-
-function positionUpdate() {
-  return new Promise(resolve => {
-    positionSummary.collection.drop()
-    positionSummarySeed.forEach(position => {
-      positionSummary.create(position)
-      .then(dbPosition => {
-        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {positionSummary: dbPosition._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Position Records Inserted');
-      });
+/*
+*** *** *** *** *** *** Employee Address Load Functions *** *** *** *** *** ***
+*/
+const homeSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    homeAddressSeed.forEach(element => {
+      seedPromises.push(homeSeedDB(element));
     });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+      Home Address Collection Seeded
+      ******************************
+      `);
+    })
+    .catch(err => reject(err));
   });
 };
-
-function personalUpdate() {
-  return new Promise(resolve => {
-    personalSummary.collection.drop()
-    personalSummarySeed.forEach(position => {
-      personalSummary.create(position)
-      .then(dbPosition => {
-        return employee.findOneAndUpdate({ employeeID: dbPosition.employeeID}, {personalSummary: dbPosition._id}, {new:true})
-      })
-      .then(dbUpdate => {
-        resolve('Personal Records Inserted');
-      });
-    });
+const homeSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new homeAddress(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {homeAddress: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Home Address Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
   });
 };
-
+/*
+*** *** *** *** *** *** Work Address Load Functions *** *** *** *** *** ***
+*/
+const workSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    workAddressSeed.forEach(element => {
+      seedPromises.push(workSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      ******************************
+      Work Address Collection Seeded
+      ******************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const workSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new workAddress(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {workAddress: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Work Address Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Position Summary Load Functions *** *** *** *** *** ***
+*/
+const positionSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    positionSummarySeed.forEach(element => {
+      seedPromises.push(positionSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+      Position Summary Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const positionSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new positionSummary(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {positionSummary: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Position Summary Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Personal Summary Load Functions *** *** *** *** *** ***
+*/
+const personalSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    personalSummarySeed.forEach(element => {
+      seedPromises.push(personalSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+      Personal Summary Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const personalSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new personalSummary(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {personalSummary: response._id}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Personal Summary Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Update the Database Call *** *** *** *** *** ***
+*/
 updateDB();
