@@ -2,9 +2,41 @@ import React from 'react';
 import gqlFetch from "../../utils/gqlFetch";
 
 class Education extends React.Component {
-  state= {}
+  state= {
+    id: this.props.id,
+    education: [],
+    loaded: false
+  };
 
-  render() {
+  async componentDidMount() {
+    const dbResponse = await this.educationLookup();
+    this.setState({ loaded: true, education: dbResponse });
+    console.log(this.state.education)
+  };
+
+  educationLookup() {
+    return new Promise(resolve => {
+      const query = 
+      `query Employee($id: ID) {
+        employee(id: $id) {
+          education {
+            id
+            schoolName
+            degree
+            startDate
+            endDate
+            bullet1
+            bullet2
+          }
+        }
+      }`
+    gqlFetch.fetchById(this.state.id, query)
+      .then(res => res.json())
+      .then(res => resolve(res.data.employee.education))
+    })
+  };
+
+  content() {
     return(
       <div className="container">
         <div className="row">
@@ -29,6 +61,10 @@ class Education extends React.Component {
         </div>
       </div>
     );
+  };
+
+  render() {
+    return (<>{this.state.loaded ? this.content() : null}</>)
   };
 };
 
