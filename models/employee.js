@@ -30,6 +30,12 @@ const employeeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "WorkHistory"
     }
+  ],
+  education: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Education"
+    }
   ]
 });
 
