@@ -13,12 +13,21 @@ const Home = () => (
     />
     <Jumbotron />
   
-    <div className="row">
-      <div className="article-div col-sm-6 d-flex justify-content-center">
-        <img className="article" src="/images/articles.png" alt="article"/>
+    <div className="articles d-flex justify-content-between">
+      <div className="article-div d-flex flex-column justify-content-center">
+        <i class="far fa-thumbs-up article-icon"></i>
+        <h5>Easy to use</h5>
+        <p>No training needed. You can quickly learn how to use our service.</p>
       </div>
-      <div className="article-div col-sm-6 d-flex justify-content-center">
-        <img className="article" src="/images/articles.png" alt="article"/>
+      <div className="article-div d-flex flex-column justify-content-center">
+        <i class="far fa-comments article-icon"></i>
+        <h5>Support</h5>
+        <p>Our Customer Care Team is alwasy ready and happy to assist you.</p>
+      </div>
+      <div className="article-div d-flex flex-column justify-content-center">
+        <i class="far fa-smile-wink article-icon"></i>
+        <h5>Free</h5>
+        <p>No cost to your company! That will surely put a smile on your face.</p>
       </div>
     </div>
   
