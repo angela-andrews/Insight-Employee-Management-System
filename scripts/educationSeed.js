@@ -2,7 +2,7 @@ module.exports = educationSeed = [
   {
     employeeID:     575811,
     "schoolName":   "Larson and Sons University",
-    "companyName":  "Bachelor of Accountant I",
+    "degree":       "Bachelor of Accountant I",
     "startDate":    2009,
     "endDate":      2013,
     "bullet1":      "ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse",
@@ -11,7 +11,7 @@ module.exports = educationSeed = [
   {
     employeeID:     575811,
     "schoolName":   "Goyette, Windler and Koepp University",
-    "companyName":  "Bachelor of Health Coach I",
+    "degree":       "Bachelor of Health Coach I",
     "startDate":    1993,
     "endDate":      1997,
     "bullet1":      "proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit",
@@ -20,7 +20,7 @@ module.exports = educationSeed = [
   {
     employeeID:     927675,
     "schoolName":   "Homenick-Thiel University",
-    "companyName":  "Bachelor of Human Resources Assistant III",
+    "degree":       "Bachelor of Human Resources Assistant III",
     "startDate":    1997,
     "endDate":      2001,
     "bullet1":      "habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur",
@@ -29,7 +29,7 @@ module.exports = educationSeed = [
   {
     employeeID:     927675,
     "schoolName":   "Schimmel LLC University",
-    "companyName":  "Bachelor of Product Engineer",
+    "degree":       "Bachelor of Product Engineer",
     "startDate":    1962,
     "endDate":      1966,
     "bullet1":      "in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo",
@@ -38,7 +38,7 @@ module.exports = educationSeed = [
   {
     employeeID:     544029,
     "schoolName":   "Yost-Thompson University",
-    "companyName":  "Bachelor of Associate Professor",
+    "degree":       "Bachelor of Associate Professor",
     "startDate":    1993,
     "endDate":      1997,
     "bullet1":      "nibh ligula nec sem duis aliquam convallis nunc proin at turpis a",
@@ -47,7 +47,7 @@ module.exports = educationSeed = [
   {
     employeeID:     544029,
     "schoolName":   "Pagac and Sons University",
-    "companyName":  "Bachelor of Research Associate",
+    "degree":        "Bachelor of Research Associate",
     "startDate":    1994,
     "endDate":      1998,
     "bullet1":      "pede lobortis ligula sit amet eleifend pede libero quis orci",
@@ -56,7 +56,7 @@ module.exports = educationSeed = [
   {
     employeeID:     441186,
     "schoolName":   "Schulist-Schuppe University",
-    "companyName":  "Bachelor of Operator",
+    "degree":       "Bachelor of Operator",
     "startDate":    2008,
     "endDate":      2012,
     "bullet1":      "sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam",
@@ -65,7 +65,7 @@ module.exports = educationSeed = [
   {
     employeeID:     441186,
     "schoolName":   "Will Inc University",
-    "companyName":  "Bachelor of Legal Assistant",
+    "degree":       "Bachelor of Legal Assistant",
     "startDate":    2011,
     "endDate":      2015,
     "bullet1":      "blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer",
@@ -74,7 +74,7 @@ module.exports = educationSeed = [
   {
     employeeID:     169497,
     "schoolName":   "Stanton-Baumbach University",
-    "companyName":  "Bachelor of Accounting Assistant I",
+    "degree":       "Bachelor of Accounting Assistant I",
     "startDate":    1993,
     "endDate":      1997,
     "bullet1":      "dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non",
@@ -83,7 +83,7 @@ module.exports = educationSeed = [
   {
     employeeID:     169497,
     "schoolName":   "Cummings, Roob and Schneider University",
-    "companyName":  "Bachelor of Programmer III",
+    "degree":       "Bachelor of Programmer III",
     "startDate":    1997,
     "endDate":      2001,
     "bullet1":      "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper",
