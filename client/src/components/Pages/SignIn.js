@@ -52,7 +52,7 @@ class SignIn extends React.Component {
         <Navbar
           imageSrc={"images/mycompany.png"}
           imageAlt={"My Company Logo"}
-          navLinks={["home", "profile", "signout"]}
+          navLinks={["signout"]}
           signIn={false}
           userName={this.state.singinName}
         />
