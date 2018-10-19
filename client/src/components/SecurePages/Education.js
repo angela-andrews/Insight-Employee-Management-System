@@ -11,7 +11,6 @@ class Education extends React.Component {
   async componentDidMount() {
     const dbResponse = await this.educationLookup();
     this.setState({ loaded: true, education: dbResponse });
-    console.log(this.state.education)
   };
 
   educationLookup() {
