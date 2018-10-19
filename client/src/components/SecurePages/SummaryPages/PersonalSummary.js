@@ -37,7 +37,7 @@ class PersonalSummary extends React.Component {
   content() {
     return (
       <fieldset>
-        <h4>Personal Summary</h4>
+        <h4 className="sub-title">Personal Summary</h4>
         
         <div className="row">
           <div className="col-lg-6">

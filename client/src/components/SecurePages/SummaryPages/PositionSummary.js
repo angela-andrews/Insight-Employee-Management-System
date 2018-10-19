@@ -37,7 +37,7 @@ class PositionSummary extends React.Component {
   content() {
     return (
       <fieldset>
-        <h4>Position Summary</h4>
+        <h4 className="sub-title">Position Summary</h4>
         
         <div className="row"> 
           <div className="col-lg-6">

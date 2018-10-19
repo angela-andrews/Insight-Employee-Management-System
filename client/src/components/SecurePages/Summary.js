@@ -52,23 +52,21 @@ class Summary extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-12">
-              <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                <button type="button" name="home" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Home Address</button>
-                <button type="button" name="work" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Work Address</button>
-                <button type="button" name="position" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Position Summary</button>
-                <button type="button" name="personal" onClick={(event) => this.handleButton(event)} className="btn btn-secondary">Personal Summary</button>
-              </div>
-              <h1>{`${this.state.singinName.firstName} ${this.state.singinName.lastName}`}</h1>
-              <hr />
-              {this.handleDisplay()}
+      <div className="container no-margin">
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+              <button type="button" name="home" onClick={(event) => this.handleButton(event)} className="btn summary-menu side-left">Home Address</button>
+              <button type="button" name="work" onClick={(event) => this.handleButton(event)} className="btn summary-menu">Work Address</button>
+              <button type="button" name="position" onClick={(event) => this.handleButton(event)} className="btn summary-menu">Position Summary</button>
+              <button type="button" name="personal" onClick={(event) => this.handleButton(event)} className="btn summary-menu side-right">Personal Summary</button>
             </div>
+            <h1 className="signin-name">{`${this.state.singinName.firstName} ${this.state.singinName.lastName}`}</h1>
+            <hr />
+            {this.handleDisplay()}
           </div>
         </div>
-      </>
+      </div>
     );
   };
 };

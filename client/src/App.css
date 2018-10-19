@@ -2,6 +2,25 @@ html, body {
   font-family: "Work Sans";
 }
 
+h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+li {
+  text-align: left !important;
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  margin-top: 2rem;
+  max-width: 79vw;
+}
+
+.no-margin {
+  margin: 0;
+}
+
 /* ------- NAVBAR component ------- */
 .logo-name {
   height: 60px;
@@ -13,11 +32,12 @@ html, body {
 
 .span-powered {
   font-size: 0.8rem;
+  margin: 0 0.5rem;
 }
 
 .nav-link {
   color: black !important;
-  text-align: center;
+  text-align: center !important;
 }
 
 li {
@@ -30,12 +50,12 @@ li {
 
 @keyframes nav-color {
   from {
-    background-color: rgba(22, 244, 208);
+    background-color: rgb(22, 244, 208);
     border-radius: 20px;
   }
   
   to {
-    background-color: rgba(11, 115, 176);
+    background-color: rgb(11, 115, 176);
     border-radius: 20px;
   }
 }
@@ -45,13 +65,64 @@ li {
   color: rgb(255, 255, 255) !important;
 }
 
+/* ------- HOME component ------- */
+.jumbotron-info {
+  background-color: rgb(11, 115, 176);
+  color: rgb(255, 255, 255);
+  padding: 2rem 3rem 2rem 2rem;
+}
+
+.jumbotron-info h1 {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  text-align: right;
+  padding: 0.5rem 0;
+}
+
+.jumbotron-subtitle {
+  margin: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+
+.jumbotron-content {
+  margin-top: 1rem;
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+
+.article {
+  width: 70%;
+  margin: 6rem 0;
+}
+
+/* .article-div {
+  background-color: rgb(58, 58, 58);
+} */
+
+.footer {
+  padding: 2rem;
+  background-color: rgb(11, 115, 176);
+}
+
+.copyright {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem;
+}
+
 /* ------- SIDE-MENU component ------- */
 /* See Menu2.css file under the Pages folder */
 
 /* ------- SIDEBAR component ------- */
 .sidebar {
   width: 50px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding: 0 0 1.5rem 0;
   /* background-color: rgb(22, 244, 208); */
   background-color: rgb(58, 58, 58);
@@ -89,4 +160,67 @@ i {
 .active-menu i {
   color: rgba(22, 244, 208);
   text-shadow: 2px 2px rgb(9, 121, 102);
+}
+
+/* ------- SUMMARY component ------- */
+.summary-menu {
+  background-color: rgb(39, 39, 39);
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem !important;
+  margin-bottom: 1rem;
+  border-radius: 0 !important;
+  padding: 0.5rem 2rem !important;
+}
+
+.summary-menu:first-child {
+  border-bottom-left-radius: 15px !important;
+}
+
+.summary-menu:last-child {
+  border-bottom-right-radius: 15px !important;
+}
+
+.summary-menu:hover {
+  background-color: rgb(11, 115, 176);
+  /* color: rgb(0, 0, 0); */
+}
+
+.container-fluid {
+  background-image: url("/images/back.jpg");
+}
+
+.signin-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  /* margin-left: 0.5rem; */
+}
+
+/* .sub-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+} */
+
+label {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+/* ------- WORK HISTORY component ------- */
+.job-title, h4 {
+  border-left: 10px solid rgb(11, 115, 176);
+  padding: 0 1rem;
+}
+
+.job-title {
+  border-bottom: 1px solid rgba(11, 115, 176, 0.2);
+  margin: 0 0 1rem 0;
+}
+
+.job-title p, h4 {
+  margin: 0;
+}
+
+/* ------- EDUCATION component ------- */
+.education-info {
+  margin: 0 0 0 1.6rem;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Jumbotron from "../Elements/Jumbotron";
-import Articles from "../Elements/Articles"
 import Navbar from "../Elements/Navbar";
+import Footer from "../Elements/Footer";
 
 const Home = () => (
   <div>
@@ -12,12 +12,18 @@ const Home = () => (
       signIn={true}
     />
     <Jumbotron />
+  
     <div className="row">
-      <Articles />
-      <Articles />
+      <div className="article-div col-sm-6 d-flex justify-content-center">
+        <img className="article" src="/images/articles.png" alt="article"/>
+      </div>
+      <div className="article-div col-sm-6 d-flex justify-content-center">
+        <img className="article" src="/images/articles.png" alt="article"/>
+      </div>
     </div>
+  
+    <Footer />
   </div>
-
 );
 
 export default Home;
