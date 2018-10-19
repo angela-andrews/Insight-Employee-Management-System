@@ -5,7 +5,7 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
       <a className="navbar-brand d-flex" href="/">	
         <img className="logo-name" alt={imageAlt} src={imageSrc} />
       {signIn ? '' :
-         <div className="d-flex align-items-end">
+         <div className="d-flex align-items-center">
            <span className="span-powered">powered by </span>
            <img className="logo-sm" alt="insight logo small" src="/images/insight_logo_tr.png" />
          </div>

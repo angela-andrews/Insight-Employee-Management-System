@@ -52,7 +52,7 @@ class Summary extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container no-margin">
         <div className="row">
           <div className="col-sm-12">
             <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
