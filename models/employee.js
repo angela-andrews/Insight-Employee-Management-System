@@ -48,6 +48,12 @@ const employeeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Certificate"
     }
+  ],
+  skill: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Skill"
+    }
   ]
 });
 
