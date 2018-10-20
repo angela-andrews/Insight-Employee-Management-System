@@ -1,7 +1,14 @@
 import React from 'react';
+import gqlFetch from '../../utils/gqlFetch';
 
-const Certifications = () => (
-  <div>
+class Certifications extends React.Component {
+  state = {
+    id: this.props.id
+  };
+
+  render() {
+    return (
+      <div>
     <div className="container-fluid">
       <div className="row">
         <div className="col-sm-12">
@@ -26,6 +33,8 @@ const Certifications = () => (
       </div>
     </div>
   </div>
-)
+    )
+  };
+};
 
 export default Certifications;
