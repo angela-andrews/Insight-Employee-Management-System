@@ -4,6 +4,7 @@ import gqlFetch from '../../utils/gqlFetch';
 class Skills extends React.Component {
   class = {};
 
+
   render() {
     return(
       <div className="container-fluid">
@@ -18,6 +19,7 @@ class Skills extends React.Component {
                   <i className="fab fa-js-square skill-icon mx-auto"></i>
                   <p>JavaScript</p>
                 </div>
+
               </div>
             </div>
           </div>
