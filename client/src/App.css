@@ -252,3 +252,14 @@ label {
 .education-info {
   margin: 0 0 0 1.6rem;
 }
+
+/*---------signout component --------*/
+.thankyou {
+  font-size: 1.9em;
+}
+
+
+.thankyou-subtitle {
+  text-align: right;
+
+}
