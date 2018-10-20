@@ -3,38 +3,61 @@ import gqlFetch from '../../utils/gqlFetch';
 
 class Certifications extends React.Component {
   state = {
-    id: this.props.id
+    id: this.props.id,
+    certs: [],
+    loaded: false
   };
 
-  render() {
+  async componentDidMount() {
+    const dbResponse = await this.certsLookup();
+    this.setState({ loaded: true, certs: dbResponse });
+  };
+
+  certsLookup() {
+    return new Promise(resolve => {
+      const query = 
+      `query Employee($id: ID) {
+        employee(id: $id) {
+          certificate {
+            id
+            schoolName
+            certificate
+            date
+            bullet1
+            bullet2
+          }
+        }
+      }`
+    gqlFetch.fetchById(this.state.id, query)
+      .then(res => res.json())
+      .then(res => resolve(res.data.employee.certificate))
+    })
+  };
+  
+  content() {
     return (
-      <div>
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-sm-12">
-          <h6>Profile > Education</h6>
-          <hr />
-          <div>
-            <h4>Universidad de Buenos Aires</h4>
-            <p>Bachelor of Science BS, Biological Sciences / Laboratory Animal Science</p>
-            <p>2002 - 2005</p>
-            <hr />
-          </div>
-          <div>
-            <h4>University of Pennsylvania</h4>
-            <p>Certificate, Full Stack Development</p>
-            <p>2018 - 2018</p>
-            <br />
-            <p>Penn Arts and Sciences Coding Bootcamp - a 24 week full stack web development program.</p>
-            <p>Skills learned: HTML, CSS, JavaScript, NodeJS, MySQL, Firebase, Bootstrap, ExpressJS, React.</p>
-            <hr />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm-12">
+            {this.state.certs.map(element => (<div key={element.id}>
+              <h4>{element.schoolName}</h4>
+              <p>{element.certificate}</p>
+              <p>{element.date}</p>
+              <ul>
+                <li>{element.bullet1}</li>
+                <li>{element.bullet2}</li>
+              </ul>
+              <hr />
+            </div>))}
           </div>
         </div>
       </div>
-    </div>
-  </div>
     )
   };
+
+  render() {
+    return(<>{this.state.loaded ? this.content() : null}</>)
+  }
 };
 
 export default Certifications;
