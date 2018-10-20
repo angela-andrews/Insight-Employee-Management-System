@@ -10,6 +10,9 @@ import "./App.css"
 import Feedback from "./components/Pages/Feedback";
 import Home from "./components/Pages/Home";
 import Signin from "./components/Pages/SignIn";
+import Signout from "./components/Pages/SignOut";
+
+
 
 const App = () => (
   <>
@@ -18,6 +21,7 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route path="/signin" component= { Signin }/>
+          <Route path="/signout" component= { Signout }/>
           <Route exact path="/feedback" component= {Feedback} />
         </Switch>
       </div>
