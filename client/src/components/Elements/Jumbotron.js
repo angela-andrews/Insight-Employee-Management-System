@@ -11,13 +11,13 @@ const Jumbotron = () => (
     </div>
     <div className="carousel-inner mx-auto">
       <div className="carousel-item active">
-        <img className="d-block w-100" src="/images/carousel1.jpg" alt="First slide"/>
+        <img className="d-block w-100" src="/images/carousel1.png" alt="First slide"/>
       </div>
       <div className="carousel-item">
-        <img className="d-block w-100" src="/images/carousel2.jpg" alt="Second slide"/>
+        <img className="d-block w-100" src="/images/carousel2.png" alt="Second slide"/>
       </div>
       <div className="carousel-item">
-        <img className="d-block w-100" src="/images/carousel3.jpg" alt="Third slide"/>
+        <img className="d-block w-100" src="/images/carousel3.png" alt="Third slide"/>
       </div>
     </div>
   </div>

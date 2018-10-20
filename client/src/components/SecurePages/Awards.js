@@ -53,7 +53,7 @@ class Awards extends React.Component {
 
   content() {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
           <div className="col-sm-12">
             <table className="table">
