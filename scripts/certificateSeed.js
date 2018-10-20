@@ -1,4 +1,4 @@
-module.exports = certSeed = 
+module.exports = certificateSeed = 
 [{
   "employeeID": 544029,
   "schoolName": "University of Comallo",
