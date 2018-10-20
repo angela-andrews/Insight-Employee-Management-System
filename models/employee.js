@@ -42,6 +42,12 @@ const employeeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Award"
     }
+  ],
+  certificate: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Certificate"
+    }
   ]
 });
 
