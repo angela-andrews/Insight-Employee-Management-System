@@ -9,6 +9,7 @@ const workHistory = require("../models/workHistory");
 const education = require('../models/education');
 const award = require('../models/award');
 const certificate = require('../models/certificate');
+const skill = require('../models/skill');
 // Seed File Includes
 const employeeSeed  = require('./employeeSeed');
 const homeAddressSeed = require('./homeAddressSeed');
@@ -19,6 +20,7 @@ const workHistorySeed = require('./workHistorySeed');
 const educationSeed = require('./educationSeed');
 const awardSeed = require('./awardSeed');
 const certificateSeed = require('./certificateSeed');
+const skillSeed = require('./skillSeed');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://insight_user:k5O^4#Lv@ds031847.mlab.com:31847/insight_db', { useNewUrlParser: true });
 // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
@@ -57,6 +59,7 @@ const updateDB = async () => {
     console.log(await educationSeedLoad());
     console.log(await awardSeedLoad());
     console.log(await certificateSeedLoad());
+    console.log(await skillSeedLoad());
     console.log(`
     *******************************
      All Collections Seeded!
@@ -73,7 +76,7 @@ const updateDB = async () => {
 */
 const dropModel = async () => {
   return new Promise((resolve,reject) => {
-    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary, workHistory, education, award]
+    dbNames = [employee, homeAddress, workAddress, positionSummary, personalSummary, workHistory, education, award, certificate, skill]
     let dropCollectionPromises = [];
     dbNames.forEach(element => {
       dropCollectionPromises.push(dropCollection(element))
@@ -392,6 +395,42 @@ const certificateSeedDB = element => {
     })
     .then(response => {
       console.log(`Certificate Record Inserted`)
+      resolve(response);
+    })
+    .catch(err => reject(err));
+  });
+};
+/*
+*** *** *** *** *** *** Skill Load Functions *** *** *** *** *** ***
+*/
+const skillSeedLoad = async () => {
+  return new Promise((resolve, reject) => {
+    let seedPromises = [];
+    skillSeed.forEach(element => {
+      seedPromises.push(skillSeedDB(element));
+    });
+    Promise.all(seedPromises)
+    .then(() => {
+      resolve(`
+      **********************************
+        Skill Collection Seeded
+      **********************************
+      `);
+    })
+    .catch(err => reject(err));
+  });
+};
+const skillSeedDB = element => {
+  return new Promise((resolve, reject) => {
+    new skill(element).save()
+    .then(response => {
+      return employee.findOneAndUpdate({ employeeID: response.employeeID}, {$push: {skill: response._id}}, {new: true})
+    })
+    .then(response => {
+      return (response);
+    })
+    .then(response => {
+      console.log(`Skill Record Inserted`)
       resolve(response);
     })
     .catch(err => reject(err));
