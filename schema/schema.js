@@ -16,6 +16,7 @@ const PersonalSummary = require('../models/personalSummary');
 const WorkHistory = require('../models/workHistory');
 const Education = require('../models/education');
 const Award = require('../models/award');
+const Certificate = require('../models/certificate');
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -66,6 +67,12 @@ const EmployeeType = new GraphQLObjectType({
       type: new GraphQLList(AwardType),
       resolve(parent, args) {
         return Award.find({employeeID: parent.employeeID})
+      }
+    },
+    certificate: {
+      type: new GraphQLList(CertificateType),
+      resolve(parent, args) {
+        return Certificate.find({employeeID: parent.employeeID})
       }
     }
   })
@@ -167,7 +174,20 @@ const AwardType = new GraphQLObjectType({
     reason:       {type: GraphQLString},
     status:       {type: GraphQLString}
   })
-})
+});
+
+const CertificateType = new GraphQLObjectType({
+  name: 'Certificate',
+  fields: () => ({
+    id:           {type: GraphQLID},
+    employeeID:   {type: GraphQLInt},
+    schoolName:   {type: GraphQLString},
+    certificate:  {type: GraphQLString},
+    date:         {type: GraphQLString},
+    bullet1:      {type: GraphQLString},
+    bullet2:      {type: GraphQLString}
+  })
+});
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
