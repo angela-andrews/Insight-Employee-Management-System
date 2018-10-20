@@ -1,5 +1,6 @@
 html, body {
   font-family: "Work Sans";
+  background-image: url("/images/back.jpg");
 }
 
 h4 {
@@ -46,6 +47,7 @@ li {
 
 .navbar {
   border-bottom: 1px solid rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255);
 }
 
 @keyframes nav-color {
@@ -99,6 +101,15 @@ li {
   margin-top: 1rem;
   text-align: right;
   color: rgb(0, 0, 0);
+}
+
+.heading-carousel {
+  right: 0;
+  bottom: 10%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1rem 7rem 1rem 5rem;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .insight-name {
