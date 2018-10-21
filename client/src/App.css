@@ -282,26 +282,38 @@ label {
 }
 
 /*--------- SKILLS component --------*/
-.skill-div {
-  position: relative;
-  padding: 1rem;
+.skill {
+  margin: 0 1rem 3rem 2rem;
+  text-align: center;
+  width: 150px;
+  height: 150px;
 }
 
-.skill-img {
-  width: 100px;
-  height: 100px;
+.skill-div {
+  background: url("/images/badge.png");
+  background-size: cover;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .skill-icon {
-  position: absolute;
-  left: 29%;
-  top: 22%;
   color: rgb(34, 34, 34);
   font-size: 3rem;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0;
 }
 
-.skill-div p {
+.skill p {
   margin: 0;
   font-weight: 700;
+  text-align: center;
+}
+
+.skills-div {
+  min-width: 79vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
