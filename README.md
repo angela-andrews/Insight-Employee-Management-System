@@ -18,8 +18,41 @@ Employees can log in and view only their informaton. Goals and objectives, educa
 # Usage
 This application is useful for the small business owner who, 1) Wants to set goals and objectvies for their staff 2) keep track of personal information 3) track employee progress towards those goals and 4) allow employees to review how their manager is doing their jobs and provide suggestions on ways to improve as a manger.
 
-# Config
-Downl
+# Getting Started
+This project was build by using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
+To get this project running locally:
+## Prequisites
+Start with having Node.js(v10.10+) and npm(v6.4+) installed. Also, install nodemon globally.
+````
+npm install -g nodemon
+````
+Clone the repo 
+````
+git clone git@github.com:angela-andrews/Insight-Employee-Management-System.git
+````
+![tree output](client/public/images/tree3.png)
+
+From the root folder, do an npm install:
+````
+npm install
+````
+Change directory to the client folder and install client side packages:
+````
+cd client && yarn install
+````
+Go back a directory and start the server:
+````
+cd .. 
+nodemon server.js
+````
+You should see that your server is running.
+Open a second terminal to start the client-side server:
+````
+cd client && yarn start
+````
+
+
+
 
 # Technologies Used
  - HTML/CSS
@@ -36,15 +69,18 @@ Downl
  - Netlify
 
 # How to Contribute
-Please read the [Code of Conduct](codeofconduct.md) for details, and the process for submitting pull requests to us.
+We welcome contributers to Insight, "#CodeNewbies" are definitly welcome! To get started, read the instructions above. Commit your code on a separate branch, write sound unit tests for your code and don't forget to run the linter before you make your pull request. 
+
+Also, please read the [Code of Conduct](codeofconduct.md) for details, and the process for submitting pull requests to us. Happy Coding! :sparkles: :octocat:
 
 # License
-Insight is licensed under the terms of the GPL Open Source license and is available for free.
+Insight source code is licensed under the terms of the [GPL Open Source license](https://www.gnu.org/licenses/gpl-3.0.en.html) and is available for free.  
 
 # Links
-[Insight](https://getinsight.app/)
+- [Insight](https://getinsight.app/)
+- [Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
-# Contributors
+# Authors
 - [Angela Andrews](https://github.com/angela-andrews)
 - [Megan Anthony](https://github.com/angela-andrews)
 - [Guillermo Barila](https://github.com/gui365)
