@@ -16,6 +16,7 @@ import Skills from "../SecurePages/Skills";
 import Summary from "../SecurePages/Summary";
 import WorkHistory from "../SecurePages/WorkHistory";
 
+
 class SignIn extends React.Component {
   state = {
     id: null,
@@ -24,9 +25,17 @@ class SignIn extends React.Component {
     loaded: false
   };
 
+  login() {
+    this.props.auth.login();
+  }
+
   async componentDidMount() {
-   const dbResponse = await this.employeeLookUp();
-   this.setState({ loaded: true, id: dbResponse.id, singinName: dbResponse.firstName });
+    if (!this.props.auth.isAuthenticated()){
+      this.props.history.replace("/")
+    } else {
+      const dbResponse = await this.employeeLookUp();
+      this.setState({ loaded: true, id: dbResponse.id, singinName: dbResponse.firstName }); 
+    }
   };
 
   employeeLookUp = () => {
@@ -47,14 +56,15 @@ class SignIn extends React.Component {
 
   
   content() {
+   
     return (
       <>
         <Navbar
           imageSrc={"images/mycompany.png"}
           imageAlt={"My Company Logo"}
           navLinks={["signout"]}
-          signIn={false}
-          userName={this.state.singinName}
+          auth={this.props.auth}
+          //userName={this.state.singinName}
         />
         <div className="container-fluid">
           <div className="row">
@@ -79,10 +89,36 @@ class SignIn extends React.Component {
   }; 
 
   render() {
+    const { isAuthenticated } = this.props.auth;
     return (
+      <div>
       <>
         {this.state.loaded ? this.content() : null}
       </>
+      <div className="container">
+        {
+          isAuthenticated() && (
+              <h4>
+                You are logged in!
+              </h4>
+            )
+        }
+        {
+          !isAuthenticated() && (
+              <h4>
+                You are not logged in! Please{' '}
+                <a
+                  style={{ cursor: 'pointer' }}
+                  onClick={this.login.bind(this)}
+                >
+                  Log In
+                </a>
+                {' '}to continue.
+              </h4>
+            )
+        }
+      </div>
+     </div>
     );
   };
 

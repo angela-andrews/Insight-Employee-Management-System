@@ -1,18 +1,28 @@
-import React from 'react';
+
+import React, { Component } from "react";
 import Jumbotron from "../Elements/Jumbotron";
 import Navbar from "../Elements/Navbar";
 import Footer from "../Elements/Footer";
 
-const Home = () => (
+class Home extends Component {
+  componentDidMount(){
+    if (this.props.auth.isAuthenticated()){
+      this.props.history.replace("/signin")
+    }
+  }
+
+  render() {
+   
+    return (
   <div>
     <Navbar
       imageSrc={"images/insight_name_tr.png"}
       imageAlt={"insight Logo"}
       navLinks={["signin"]}
-      signIn={true}
+      auth={this.props.auth}
     />
     <Jumbotron />
-  
+
     <div className="articles d-flex justify-content-between">
       <div className="article-div d-flex flex-column justify-content-center">
         <i className="far fa-thumbs-up article-icon"></i>
@@ -34,5 +44,7 @@ const Home = () => (
     <Footer />
   </div>
 );
+      };
+    }
 
 export default Home;
