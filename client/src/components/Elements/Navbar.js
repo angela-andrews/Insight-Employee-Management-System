@@ -1,10 +1,23 @@
 import React from 'react';
+import {
+  withRouter
+ } from 'react-router-dom'
 
-const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
+const handleClick = (auth, props) => {
+  if (auth.isAuthenticated()) {
+    auth.logout(props)
+  } else {
+    auth.login(props)
+  }
+} 
+
+const Navbar = ({ imageSrc, imageAlt, navLinks, auth, userName, ...rest }) => {
+  const { isAuthenticated } = auth;
+  return (
   <nav className="navbar navbar-expand-lg navbar-light">
       <a className="navbar-brand d-flex" href="/">	
         <img className="logo-name" alt={imageAlt} src={imageSrc} />
-      {signIn ? '' :
+      {isAuthenticated() ? '' :
          <div className="d-flex align-items-center">
            <span className="span-powered">powered by </span>
            <img className="logo-sm" alt="insight logo small" src="/images/insight_logo_tr.png" />
@@ -18,15 +31,16 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, signIn, userName }) => (
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
-      <li className="nav-link"><b>{signIn ? '' : `Hello ${userName}`}</b></li>
-        {navLinks.map((link, index) => {
-          return (<li key={index} className="nav-item">
-          <a className="nav-link nav-link-top" href={"/"+link}>{link.charAt(0).toUpperCase() + link.substr(1)}</a>
-        </li>)
-        })}
+        <li className="nav-link"><b>{!isAuthenticated() ? '' : `Hello ${userName}`}</b></li>
+        <li className="nav-item">
+            <span className="nav-link nav-link-top" onClick={() => handleClick(auth, rest)} >
+              {!isAuthenticated() ? "Sign In"  : "Sign Out"}
+            </span>
+        </li>
       </ul>
     </div>
   </nav>
-);
+  )
+};
 
-export default Navbar;
+export default withRouter (Navbar);

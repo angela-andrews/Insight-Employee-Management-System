@@ -4,13 +4,13 @@ import Thankyou from "../Elements/Thankyou";
 import Navbar from "../Elements/Navbar";
 import Footer from "../Elements/Footer";
 
-const SignOut = () => (
+const SignOut = (props) => (
     <div>
       <Navbar
         imageSrc={"images/insight_name_tr.png"}
         imageAlt={"insight Logo"}
         navLinks={["signin"]}
-        signIn={true}
+        auth={props.auth}
       />
     
     <Thankyou />
