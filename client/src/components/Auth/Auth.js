@@ -11,6 +11,7 @@ export default class Auth {
     scope: 'openid'
   });
 
+
   constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
@@ -21,12 +22,13 @@ export default class Auth {
   login() {
     this.auth0.authorize();
   }
-
+  
   handleAuthentication(props) {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         props.history.replace('/signin');
+
       } else if (err) {
         props.history.replace('/home');
         console.log(err);
@@ -41,6 +43,9 @@ export default class Auth {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    if(authResult.idTokenPayload.sub === "google-oauth2|110476957509667863869") {
+      localStorage.setItem('employee_id', 927675)
+    }
     // navigate to the home route
    // history.replace('/signin');
   }
@@ -50,7 +55,7 @@ export default class Auth {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
-    
+    localStorage.removeItem('employee_id');
     // navigate to the home route
     props.history.replace('/');
   }

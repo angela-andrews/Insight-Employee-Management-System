@@ -20,7 +20,7 @@ import WorkHistory from "../SecurePages/WorkHistory";
 class SignIn extends React.Component {
   state = {
     id: null,
-    empID: 575811,
+    empID: parseInt(localStorage.getItem('employee_id')),
     singinName: "",
     loaded: false
   };
@@ -36,6 +36,7 @@ class SignIn extends React.Component {
       const dbResponse = await this.employeeLookUp();
       this.setState({ loaded: true, id: dbResponse.id, singinName: dbResponse.firstName }); 
     }
+    console.log(parseInt(localStorage.getItem('employee_id')))
   };
 
   employeeLookUp = () => {
@@ -64,7 +65,7 @@ class SignIn extends React.Component {
           imageAlt={"My Company Logo"}
           navLinks={["signout"]}
           auth={this.props.auth}
-          //userName={this.state.singinName}
+          userName={this.state.singinName}
         />
         <div className="container-fluid">
           <div className="row">
