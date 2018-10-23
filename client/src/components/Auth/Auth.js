@@ -65,7 +65,7 @@ export default class Auth {
     localStorage.removeItem('expires_at');
     localStorage.removeItem('employee_id');
     // navigate to the home route
-    props.history.replace('/');
+    props.history.replace('/signout');
   }
 
   isAuthenticated() {
