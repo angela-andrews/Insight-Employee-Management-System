@@ -8,7 +8,7 @@ const Actions = () => (
       return(
         <div className="input-group mb-3" key={index}>
           <div className="input-group-prepend">
-            <button type="button" className="btn btn-outline-secondary">Action {`${action}`}</button>
+            <button type="button" className="btn button-action">Action {`${action}`}</button>
           </div>
           <input type="text" className="form-control" aria-label="Text input with segmented dropdown button" />
           <div className="input-group-append">

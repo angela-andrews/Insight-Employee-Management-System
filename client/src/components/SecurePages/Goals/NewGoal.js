@@ -6,8 +6,8 @@ import Measurable from './Measurable';
 import Actions from './Actions';
 import Relevant from './Relevant';
 import Time from './Time';
-import Complete from './Complete';
 import NextButton from './NextButton';
+import Complete from './Complete';
 
 class NewGoal extends React.Component {
 
@@ -34,7 +34,7 @@ class NewGoal extends React.Component {
         return step
       }
     })
-    this.setState({ steps : updated, currentStep: nextStep})
+    this.setState({ steps : updated, currentStep: nextStep});
   };
   
 
@@ -42,47 +42,47 @@ class NewGoal extends React.Component {
     switch (this.state.currentStep) {
       case "Employee":
         return (<>
-        <NewGoalHeader steps={this.state.steps}/>
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
+        <NextButton onClick={() => this.updateSteps(null, "Specific")} step={this.state.currentStep}/>
         <EmpList />
-        <NextButton onClick={() => this.updateSteps(null, "Specific")}/>
         </>)
       case "Specific":
       return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Specific />
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
         <NextButton onClick={() => this.updateSteps("Specific", "Measureable")}/>
+        <Specific />
       </>)
       case "Measureable":
         return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Measurable />
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
         <NextButton onClick={() => this.updateSteps("Measureable", "Action")} />
+        <Measurable />
         </>)
       case "Action":
         return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Actions />
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
         <NextButton onClick={() => this.updateSteps("Action", "Relevant")}/>
+        <Actions />
         </>)
       case "Relevant":
         return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Relevant />
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
         <NextButton onClick={() => this.updateSteps("Relevant", "Time")}/>
+        <Relevant />
         </>)
       case "Time":
         return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Time />
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
         <NextButton onClick={() => this.updateSteps("Time", "Confirm")} />
+        <Time />
         </>)
       case "Confirm":
       return (<>
-        <NewGoalHeader steps={this.state.steps}/>
-        <Complete />;
+        <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
+        <Complete />
         </>)
       default: 
-        return <EmpList />;
+        return <EmpList />
     }
   }
 
@@ -90,11 +90,7 @@ class NewGoal extends React.Component {
     return(
       <div>
         <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              {this.handleWizard()}
-            </div>
-          </div>
+          {this.handleWizard()}
         </div>
       </div>
     )

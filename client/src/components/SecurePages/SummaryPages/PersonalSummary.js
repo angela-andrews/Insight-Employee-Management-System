@@ -42,14 +42,14 @@ class PersonalSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Title</label>
+              <label className="label-home">Title</label>
               <input id="title" name="title" type="text" className="form-control required" placeholder={this.state.personalInfo.employee.personalSummary.title} />
             </div>
           </div>
           
           <div className="col-lg-6">
             <div className="form-group">
-              <label>First Name</label>
+              <label className="label-home">First Name</label>
               <input id="fName" name="fName" type="text" className="form-control required email" placeholder={this.state.personalInfo.employee.firstName}/>
             </div>
           </div>
@@ -58,14 +58,14 @@ class PersonalSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Middle Name</label>
+              <label className="label-home">Middle Name</label>
               <input id="mName" name="mName" type="text" className="form-control required" placeholder={this.state.personalInfo.employee.personalSummary.middleName}/>
             </div>
           </div>
           
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Last Name</label>
+              <label className="label-home">Last Name</label>
               <input id="lName" name="lName" type="text" className="form-control" placeholder={this.state.personalInfo.employee.lastName}/>
             </div>
           </div>
@@ -74,14 +74,14 @@ class PersonalSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Date of Birth</label>
+              <label className="label-home">Date of Birth</label>
               <input id="dob" name="dob" type="text" className="form-control required email" placeholder={this.state.personalInfo.employee.personalSummary.dob}/>
             </div>
           </div>
                 
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Sex / Gender</label>
+              <label className="label-home">Sex / Gender</label>
               <input id="gender" name="gender" type="text" className="form-control" placeholder={this.state.personalInfo.employee.personalSummary.gender}/>
             </div>
           </div>

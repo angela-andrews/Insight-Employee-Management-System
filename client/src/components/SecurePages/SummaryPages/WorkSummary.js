@@ -42,14 +42,14 @@ class WorkSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Street Address</label>
+              <label className="label-home">Street Address</label>
                 <input id="address1" name="address1" type="text" className="form-control required" placeholder={this.state.workAddress.employee.workAddress.streetOne}  />
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Address Line 2</label>
+              <label className="label-home">Address Line 2</label>
               <input id="address2" name="address2" type="text" className="form-control required email" placeholder={this.state.workAddress.employee.workAddress.streetTwo} />
             </div>
           </div>
@@ -58,14 +58,14 @@ class WorkSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>City</label>
+              <label className="label-home">City</label>
               <input id="city" name="city" type="text" className="form-control required" placeholder={this.state.workAddress.employee.workAddress.city}/>
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
-              <label>State</label>
+              <label className="label-home">State</label>
               <input id="state" name="state" type="text" className="form-control" placeholder={this.state.workAddress.employee.workAddress.state}/>
             </div>
           </div>
@@ -74,14 +74,14 @@ class WorkSummary extends React.Component {
         <div className="row">
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Zip Code</label>
+              <label className="label-home">Zip Code</label>
               <input id="zipCode" name="zipCode" type="text" className="form-control required email" placeholder={this.state.workAddress.employee.workAddress.zip}/>
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
-              <label>Country</label>
+              <label className="label-home">Country</label>
               <input id="country" name="country" type="text" className="form-control" placeholder={this.state.workAddress.employee.workAddress.country}/>
             </div>
           </div>
