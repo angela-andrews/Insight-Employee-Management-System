@@ -1,77 +1,103 @@
 module.exports = skillSeed = 
-[{
+[
+  {
   "employeeID": 169497,
-  "skill": "Communication"
-}, {
+  "skill":      "Communication"
+  }, 
+  {
   "employeeID": 544029,
-  "skill": "Accounting"
-}, {
+  "skill":      "Accounting"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Time Management"
-}, {
+  "skill":      "Time Management"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Mathematics"
-}, {
+  "skill":      "Mathematics"
+  }, 
+  {
   "employeeID": 544029,
-  "skill": "Project Management"
-}, {
+  "skill":      "Project Management"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Marketing"
-}, {
+  "skill":      "Marketing"
+  }, 
+  {
   "employeeID": 441186,
-  "skill": "Bilingual"
-}, {
+  "skill":      "Bilingual"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Communication"
-}, {
+  "skill":      "Communication"
+  }, 
+  {
   "employeeID": 441186,
-  "skill": "Accounting"
-}, {
+  "skill":      "Accounting"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Time Management"
-}, {
+  "skill":      "Time Management"
+  }, 
+  {
   "employeeID": 544029,
-  "skill": "Mathematics"
-}, {
+  "skill":      "Mathematics"
+  }, 
+  {
   "employeeID": 169497,
-  "skill": "Project Management"
-}, {
+  "skill":      "Project Management"
+  }, 
+  {
   "employeeID": 927675,
-  "skill": "Marketing"
-}, {
+  "skill":      "Marketing"
+  }, 
+  {
   "employeeID": 169497,
-  "skill": "Bilingual"
-}, {
+  "skill":      "Bilingual"
+  }, 
+  {
   "employeeID": 441186,
-  "skill": "Communication"
-}, {
+  "skill":      "Communication"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Accounting"
-}, {
+  "skill":      "Accounting"
+  }, 
+  {
   "employeeID": 575811,
-  "skill": "Time Management"
-}, {
+  "skill":      "Time Management"
+  }, 
+  {
   "employeeID": 927675,
-  "skill": "Mathematics"
-}, {
+  "skill":      "Mathematics"
+  },
+  {
   "employeeID": 927675,
-  "skill": "Project Management"
-}, {
+  "skill":      "Project Management"
+  },
+  {
   "employeeID": 441186,
-  "skill": "Marketing"
-}, {
+  "skill":      "Marketing"
+  },
+  { 
   "employeeID": 927675,
-  "skill": "Bilingual"
-}, {
+  "skill":      "Bilingual"
+  },
+  {
   "employeeID": 927675,
-  "skill": "Communication"
-}, {
+  "skill":      "Communication"
+  },
+  {
   "employeeID": 575811,
-  "skill": "Accounting"
-}, {
+  "skill":      "Accounting"
+  },
+  {
   "employeeID": 169497,
-  "skill": "Time Management"
-}, {
+  "skill":      "Time Management"
+  },
+  {
   "employeeID": 169497,
-  "skill": "Mathematics"
-}];
+  "skill":      "Mathematics"
+  }
+];
