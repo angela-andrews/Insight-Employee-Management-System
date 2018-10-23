@@ -3,7 +3,7 @@ html, body {
   background-image: url("/images/back.jpg");
 }
 
-h4 {
+h4, .title-time {
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -117,11 +117,6 @@ li {
   color: rgb(22, 244, 208);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-
-/* .article {
-  width: 70%;
-  margin: 6rem 0;
-} */
 
 .articles {
   padding: 0 6rem;
@@ -240,8 +235,8 @@ i {
   /* margin-left: 0.5rem; */
 }
 
-.sub-title {
-  margin-bottom: 1rem;
+.sub-title, .complete-title {
+  margin-bottom: 1.2rem;
 }
 
 .label-home {
@@ -342,4 +337,46 @@ i {
   margin-bottom: 2rem;
   color: rgb(255, 255, 255);
   padding: 0.2rem 4rem;
+}
+
+.button-action {
+  background-color: rgba(11, 115, 176, 0.8); 
+  color: white;
+}
+
+.form-control, .dropdown-toggle, .input-time {
+  border: 1px solid rgba(11, 115, 176, 0.5);
+  background-color: rgba(11, 115, 176, 0.1);
+}
+
+.dropdown-toggle, .complete-submit {
+  background-color: rgb(11, 115, 176);
+  color: white;
+}
+
+.fieldset-time {
+  margin-left: 0.5rem;
+}
+
+.div-time {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.div-time label {
+  margin: 0;
+}
+
+.input-time {
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.complete-modify {
+  background-color: rgb(223, 24, 24);
+  color: rgb(255, 255, 255);
+  margin-left: 1rem;
 }

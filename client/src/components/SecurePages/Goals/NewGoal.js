@@ -79,10 +79,10 @@ class NewGoal extends React.Component {
       case "Confirm":
       return (<>
         <NewGoalHeader steps={this.state.steps} currentStep={this.state.currentStep}/>
-        <Complete />;
+        <Complete />
         </>)
       default: 
-        return <EmpList />;
+        return <EmpList />
     }
   }
 
