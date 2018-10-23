@@ -28,7 +28,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         props.history.replace('/signin');
-
+        console.log(authResult.idTokenPayload)
       } else if (err) {
         props.history.replace('/home');
         console.log(err);
@@ -45,10 +45,18 @@ export default class Auth {
     localStorage.setItem('expires_at', expiresAt);
     if(authResult.idTokenPayload.sub === "google-oauth2|110476957509667863869") {
       localStorage.setItem('employee_id', 927675)
-    }
+    } else if (authResult.idTokenPayload.sub === "google-oauth2|112420433515438364916") {
+      localStorage.setItem('employee_id', 544029)
+    } else if (authResult.idTokenPayload.sub === "google-oauth2|116492861416056052076") {
+      localStorage.setItem('employee_id', 575811)
+    } else if (authResult.idTokenPayload.sub === "auth0|5bccf3f9f5129b3189f9e707") {
+      localStorage.setItem('employee_id', 169497)
+    } else if (authResult.idTokenPayload.sub === "google-oauth2|114230559307588310257") {
+      localStorage.setItem('employee_id', 441186)
     // navigate to the home route
    // history.replace('/signin');
   }
+}
 
   logout(props) {
     // Clear access token and ID token from local storage
