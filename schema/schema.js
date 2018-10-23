@@ -8,16 +8,7 @@ const {
   GraphQLString
 } = graphql;
 
-const Employee = require('../models/employee');
-const HomeAddress = require('../models/homeAddress');
-const WorkAddress = require('../models/workAddress');
-const PositionSummary = require('../models/positionSummary');
-const PersonalSummary = require('../models/personalSummary');
-const WorkHistory = require('../models/workHistory');
-const Education = require('../models/education');
-const Award = require('../models/award');
-const Certificate = require('../models/certificate');
-const Skill = require('../models/skill');
+const dbModel = require("../models");
 
 const EmployeeType = new GraphQLObjectType({
   name: 'Employee',
@@ -31,55 +22,55 @@ const EmployeeType = new GraphQLObjectType({
     homeAddress: {
       type: HomeAddressType,
       resolve(parent, args) {
-        return HomeAddress.findById(parent.homeAddress)
+        return dbModel.homeAddress.findById(parent.homeAddress)
       }
     },
     workAddress: {
       type: WorkAddressType,
       resolve(parent, args) {
-        return WorkAddress.findById(parent.workAddress);
+        return dbModel.workAddress.findById(parent.workAddress);
       }
     },
     positionSummary: {
       type: PositionSummaryType,
       resolve(parent, args) {
-        return PositionSummary.findById(parent.positionSummary)
+        return dbModel.positionSummary.findById(parent.positionSummary)
       }
     },
     personalSummary: {
       type: PersonalSummaryType,
       resolve(parent, args) {
-        return PersonalSummary.findById(parent.personalSummary)
+        return dbModel.personalSummary.findById(parent.personalSummary)
       }
     },
     workHistory: {
       type: new GraphQLList(WorkHistoryType),
       resolve(parent, args) {
-        return WorkHistory.find({employeeID: parent.employeeID})
+        return dbModel.workHistory.find({employeeID: parent.employeeID})
       }
     },
     education: {
       type: new GraphQLList(EducationType),
       resolve(parent, args) {
-        return Education.find({employeeID: parent.employeeID})
+        return dbModel.education.find({employeeID: parent.employeeID})
       }
     },
     award: {
       type: new GraphQLList(AwardType),
       resolve(parent, args) {
-        return Award.find({employeeID: parent.employeeID})
+        return dbModel.award.find({employeeID: parent.employeeID})
       }
     },
     certificate: {
       type: new GraphQLList(CertificateType),
       resolve(parent, args) {
-        return Certificate.find({employeeID: parent.employeeID})
+        return dbModel.certificate.find({employeeID: parent.employeeID})
       }
     },
     skill: {
       type: new GraphQLList(SkillType),
       resolve(parent, args) {
-        return Skill.find({employeeID: parent.employeeID})
+        return dbModel.skill.find({employeeID: parent.employeeID})
       }
     }
   })
@@ -212,36 +203,22 @@ const RootQuery = new GraphQLObjectType({
       type: EmployeeType,
       args: {id: {type: GraphQLID}},
       resolve(parent, args) {
-        return Employee.findById(args.id);
+        return dbModel.employee.findById(args.id);
       }
     },
     employeeByID: {
       type: EmployeeType,
       args: {employeeID: {type: GraphQLInt}},
       resolve(parent, args) {
-        return Employee.findOne({ employeeID: args.employeeID})
+        return dbModel.employee.findOne({ employeeID: args.employeeID})
       }
     },
     allEmployees: {
       type: new GraphQLList(EmployeeType),
       resolve(parent, args) {
-        return Employee.find({});
+        return dbModel.employee.find({});
       }
     },
-    homeAddress: {
-      type: HomeAddressType,
-      args: {id: {type: GraphQLID}},
-      resolve(parent, args) {
-        return HomeAddress.findById(args.id);
-      }
-    },
-    workAddress: {
-      type: WorkAddressType,
-      args: {id: {type: GraphQLID}},
-      resolve(parent, args) {
-        return WorkAddress.findById(args.id);
-      }
-    }
   }
 });
 
