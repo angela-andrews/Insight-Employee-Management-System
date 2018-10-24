@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import './Menu.css'
+import React, { Component } from "react";
+import { Link } 						from "react-router-dom";
+import 													 "./Menu.css";
 
 const options = [
 	{ route: "/signin/summary", 	name: "Summary" },

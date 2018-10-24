@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Jumbotron from "../Elements/Jumbotron";
-import Navbar from "../Elements/Navbar";
-import Footer from "../Elements/Footer";
+import Jumbotron            from "../Elements/Jumbotron";
+import Navbar               from "../Elements/Navbar";
+import Footer               from "../Elements/Footer";
 
 class Home extends Component {
   componentDidMount() {
