@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const NewGoalHeader = ({ steps, currentStep }) => (
   <div className="progress-bar-div d-flex">

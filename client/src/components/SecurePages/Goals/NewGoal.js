@@ -1,13 +1,13 @@
-import React          from 'react';
-import NewGoalHeader  from './NewGoalHeader';
-import EmpList        from  './EmpList';
-import Specific       from './Specific';
-import Measurable     from './Measurable';
-import Actions        from './Actions';
-import Relevant       from './Relevant';
-import Time           from './Time';
-import NextButton     from './NextButton';
-import Complete       from './Complete';
+import React          from "react";
+import NewGoalHeader  from "./NewGoalHeader";
+import EmpList        from "'./EmpList";
+import Specific       from "./Specific";
+import Measurable     from "./Measurable";
+import Actions        from "./Actions";
+import Relevant       from "./Relevant";
+import Time           from "./Time";
+import NextButton     from "./NextButton";
+import Complete       from "./Complete";
 
 class NewGoal extends React.Component {
 

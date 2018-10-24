@@ -1,5 +1,5 @@
-import React  from 'react';
-import gql    from '../../../utils/gqlFetch';
+import React  from "react";
+import gql    from "../../../utils/gqlFetch";
 
 class EmpList extends React.Component {
   state = {
