@@ -70,7 +70,7 @@ class SignIn extends React.Component {
               <Route exact path="/signin/awards"    render=     { () => <Awards          id={ this.state.id } /> }/>
               <Route exact path="/signin/certs"     render=     { () => <Certifications  id={ this.state.id } /> }/>
               <Route exact path="/signin/goals"     component=  { GoalsObjectives }/>
-              <Route exact path="/signin/skills"    component=  { () => <Skills          id={ this.state.id } /> }/>
+              <Route exact path="/signin/skills"    render=     { () => <Skills          id={ this.state.id } /> }/>
               <Route exact path="/signin/whistory"  render=     { () => <WorkHistory     id={ this.state.id } /> }/>
               <Route exact path="/signin/newgoal"   component=  { NewGoal }/>
             </>

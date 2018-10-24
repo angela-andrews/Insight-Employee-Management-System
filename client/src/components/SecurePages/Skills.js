@@ -48,7 +48,7 @@ class Skills extends React.Component {
         return(<i className="fas fa-language skill-icon mx-auto my-auto"></i>)
       default:
         return(<i className="fas fa-business-time skill-icon mx-auto my-auto"></i>)
-    };
+    }
   };
 
   content() {
@@ -69,7 +69,7 @@ class Skills extends React.Component {
   render() {
     return(<>{ this.state.loaded ? this.content() : null }</>);
   };
-  
+
 };
 
 export default Skills;

@@ -45,7 +45,7 @@ class Summary extends React.Component {
         return <PersonalSummary id={ this.state.id }/>;
       default:
         return <HomeSummary id={ this.state.id }/>
-    };
+    }
   };
 
   render() {

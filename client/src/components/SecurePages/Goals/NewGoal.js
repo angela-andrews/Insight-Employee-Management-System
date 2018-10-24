@@ -1,6 +1,6 @@
 import React          from "react";
 import NewGoalHeader  from "./NewGoalHeader";
-import EmpList        from "'./EmpList";
+import EmpList        from "./EmpList";
 import Specific       from "./Specific";
 import Measurable     from "./Measurable";
 import Actions        from "./Actions";
@@ -32,7 +32,7 @@ class NewGoal extends React.Component {
         return newStep
       } else {
         return step
-      };
+      }
     });
     this.setState({ steps : updated, currentStep: nextStep});
   };
@@ -82,7 +82,7 @@ class NewGoal extends React.Component {
         </>)
       default: 
         return <EmpList />
-    };
+    }
   };
 
   render() {
