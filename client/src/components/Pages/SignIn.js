@@ -81,10 +81,9 @@ class SignIn extends React.Component {
   }; 
 
   render() {
-    const { isAuthenticated } = this.props.auth;
     return (<>{this.state.loaded ? this.content() : null}</>);
   };
-  
+
 };
 
 export default SignIn;
