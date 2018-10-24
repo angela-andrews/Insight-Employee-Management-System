@@ -17,7 +17,7 @@ const Navbar = ({ imageSrc, imageAlt, navLinks, auth, userName, ...rest }) => {
   <nav className="navbar navbar-expand-lg navbar-light">
       <a className="navbar-brand d-flex" href="/">	
         <img className="logo-name" alt={imageAlt} src={imageSrc} />
-      {isAuthenticated() ? '' :
+      {!isAuthenticated() ? '' :
          <div className="d-flex align-items-center">
            <span className="span-powered">powered by </span>
            <img className="logo-sm" alt="insight logo small" src="/images/insight_logo_tr.png" />

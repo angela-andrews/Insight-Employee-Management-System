@@ -15,7 +15,7 @@ import Signin from "./components/Pages/SignIn";
 import Signout from "./components/Pages/SignOut";
 import Callback from "./components/Auth/Callback";
 import Auth from "./components/Auth/Auth";
-
+import Thankyou from "./components/Elements/Thankyou"
 
 const auth = new Auth();
 
@@ -35,7 +35,7 @@ export const App = () => {
         <Switch>
           <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/signin"  render={(props) => <Signin auth={auth} {...props} />} /> 
-          <Route path="/signout" render={(props) => <Signout auth={auth} {...props} /> } />
+          <Route path="/signout" render={(props) => <Thankyou auth={auth} {...props} /> } />
           <Route exact path="/feedback" render={(props) => <Feedback auth={auth} {...props} />} /> 
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
