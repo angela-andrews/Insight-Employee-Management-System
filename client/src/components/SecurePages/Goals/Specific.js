@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Specific = () => (
   <form>
@@ -11,7 +11,6 @@ const Specific = () => (
       <label htmlFor="goalDesc">Add your description</label>
       <textarea className="form-control" id="goalDesc" rows="3"></textarea>
     </div>
-
   </form>
 );
 
