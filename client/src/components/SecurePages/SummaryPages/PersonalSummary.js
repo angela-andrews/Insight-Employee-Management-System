@@ -91,7 +91,7 @@ class PersonalSummary extends React.Component {
   };
 
   render() {
-    return (<>{this.state.loaded ? this.content() : null }</>);
+    return (<>{ this.state.loaded ? this.content() : null }</>);
   };
 
 };
