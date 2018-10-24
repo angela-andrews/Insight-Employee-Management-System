@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Relevant = () => (
   <form>
-
     <fieldset disabled>
       <div className="form-group">
         <label htmlFor="currentPerf">Job Category:</label>
@@ -14,7 +13,6 @@ const Relevant = () => (
         <input type="text" id="jobPercent" className="form-control" placeholder="35%" />
       </div>
     </fieldset>
-
   </form>
 );
 
