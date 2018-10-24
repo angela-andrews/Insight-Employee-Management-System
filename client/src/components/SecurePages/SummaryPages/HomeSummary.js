@@ -1,4 +1,4 @@
-import React from 'react';
+import React    from "react";
 import gqlFetch from "../../../utils/gqlFetch";
 
 class HomeSummary extends React.Component {
@@ -29,8 +29,8 @@ class HomeSummary extends React.Component {
         }
       }`
       gqlFetch.fetchById(this.state.id, query)
-        .then(res => res.json())
-        .then(res => resolve(res.data));
+      .then(res => res.json())
+      .then(res => resolve(res.data));
     });
   };
 
@@ -43,14 +43,14 @@ class HomeSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Street Address</label>
-                <input id="address1" name="address1" type="text" className="form-control required" placeholder={this.state.homeAddress.employee.homeAddress.streetOne}  />
+                <input id="address1" name="address1" type="text" className="form-control required" placeholder={ this.state.homeAddress.employee.homeAddress.streetOne }  />
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Address Line 2</label>
-              <input id="address2" name="address2" type="text" className="form-control required email" placeholder={this.state.homeAddress.employee.homeAddress.streetTwo} />
+              <input id="address2" name="address2" type="text" className="form-control required email" placeholder={ this.state.homeAddress.employee.homeAddress.streetTwo } />
             </div>
           </div>
         </div>
@@ -59,14 +59,14 @@ class HomeSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">City</label>
-              <input id="city" name="city" type="text" className="form-control required" placeholder={this.state.homeAddress.employee.homeAddress.city}/>
+              <input id="city" name="city" type="text" className="form-control required" placeholder={ this.state.homeAddress.employee.homeAddress.city }/>
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">State</label>
-              <input id="state" name="state" type="text" className="form-control" placeholder={this.state.homeAddress.employee.homeAddress.state}/>
+              <input id="state" name="state" type="text" className="form-control" placeholder={ this.state.homeAddress.employee.homeAddress.state }/>
             </div>
           </div>
         </div>
@@ -75,28 +75,23 @@ class HomeSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Zip Code</label>
-              <input id="zipCode" name="zipCode" type="text" className="form-control required email" placeholder={this.state.homeAddress.employee.homeAddress.zip}/>
+              <input id="zipCode" name="zipCode" type="text" className="form-control required email" placeholder={ this.state.homeAddress.employee.homeAddress.zip }/>
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Country</label>
-              <input id="country" name="country" type="text" className="form-control" placeholder={this.state.homeAddress.employee.homeAddress.country}/>
+              <input id="country" name="country" type="text" className="form-control" placeholder={ this.state.homeAddress.employee.homeAddress.country }/>
             </div>
           </div>
         </div>
-
     </fieldset>
     );
   };
 
   render() {
-    return (
-      <>
-        {this.state.loaded ? this.content() : null}
-      </>
-    );
+    return (<>{this.state.loaded ? this.content() : null}</>);
   };
 };
 
