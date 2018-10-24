@@ -1,5 +1,5 @@
-import React from 'react';
-import gqlFetch from '../../utils/gqlFetch';
+import React    from "react";
+import gqlFetch from "../../utils/gqlFetch";
 
 class Skills extends React.Component {
   state = {
@@ -25,9 +25,9 @@ class Skills extends React.Component {
         }
       }`
     gqlFetch.fetchById(this.state.id, query)
-      .then(res => res.json())
-      .then(res => resolve(res.data.employee.skill))
-    })
+    .then(res => res.json())
+    .then(res => resolve(res.data.employee.skill))
+    });
   };
 
   faLookup(name) {
@@ -55,11 +55,11 @@ class Skills extends React.Component {
     return(
       <div className="container skills-div">
         {this.state.skills.map(element => (
-          <div key={element.id} className="skill">
+          <div key={ element.id } className="skill">
             <div className="skill-div d-flex">
               {this.faLookup(element.skill)}
             </div>
-            <p>{element.skill}</p>
+            <p>{ element.skill }</p>
           </div>
         ))}
       </div>
@@ -67,8 +67,9 @@ class Skills extends React.Component {
   };
 
   render() {
-    return(<>{this.state.loaded ? this.content() : null}</>);
+    return(<>{ this.state.loaded ? this.content() : null }</>);
   };
+
 };
 
 export default Skills;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Complete = () => (
   <div>
@@ -6,6 +6,6 @@ const Complete = () => (
     <button type="button" className="btn complete-submit">Submit Goal to Employee</button>
     <button type="button" className="btn complete-modify">Make Changes</button>  
   </div>
-)
+);
 
-export default Complete
+export default Complete;

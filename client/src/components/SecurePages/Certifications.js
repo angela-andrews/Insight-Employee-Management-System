@@ -1,5 +1,5 @@
-import React from 'react';
-import gqlFetch from '../../utils/gqlFetch';
+import React    from "react";
+import gqlFetch from "../../utils/gqlFetch";
 
 class Certifications extends React.Component {
   state = {
@@ -29,9 +29,9 @@ class Certifications extends React.Component {
         }
       }`
     gqlFetch.fetchById(this.state.id, query)
-      .then(res => res.json())
-      .then(res => resolve(res.data.employee.certificate))
-    })
+    .then(res => res.json())
+    .then(res => resolve(res.data.employee.certificate))
+    });
   };
   
   content() {
@@ -39,13 +39,13 @@ class Certifications extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            {this.state.certs.map(element => (<div key={element.id}>
-              <h4>{element.schoolName}</h4>
-              <p>{element.certificate}</p>
-              <p>{element.date}</p>
+            {this.state.certs.map(element => (<div key={ element.id }>
+              <h4>{ element.schoolName }</h4>
+              <p>{ element.certificate }</p>
+              <p>{ element.date }</p>
               <ul>
-                <li>{element.bullet1}</li>
-                <li>{element.bullet2}</li>
+                <li>{ element.bullet1 }</li>
+                <li>{ element.bullet2 }</li>
               </ul>
               <hr />
             </div>))}
@@ -56,8 +56,9 @@ class Certifications extends React.Component {
   };
 
   render() {
-    return(<>{this.state.loaded ? this.content() : null}</>)
-  }
+    return(<>{ this.state.loaded ? this.content() : null }</>)
+  };
+  
 };
 
 export default Certifications;

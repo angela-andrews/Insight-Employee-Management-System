@@ -1,4 +1,4 @@
-import React from 'react';
+import React    from "react";
 import gqlFetch from "../../../utils/gqlFetch";
 
 class PersonalSummary extends React.Component {
@@ -29,8 +29,8 @@ class PersonalSummary extends React.Component {
         }
       }`
       gqlFetch.fetchById(this.state.id, query)
-        .then(res => res.json())
-        .then(res => resolve(res.data));
+      .then(res => res.json())
+      .then(res => resolve(res.data));
     });
   };
 
@@ -43,14 +43,14 @@ class PersonalSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Title</label>
-              <input id="title" name="title" type="text" className="form-control required" placeholder={this.state.personalInfo.employee.personalSummary.title} />
+              <input id="title" name="title" type="text" className="form-control required" placeholder={ this.state.personalInfo.employee.personalSummary.title } />
             </div>
           </div>
           
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">First Name</label>
-              <input id="fName" name="fName" type="text" className="form-control required email" placeholder={this.state.personalInfo.employee.firstName}/>
+              <input id="fName" name="fName" type="text" className="form-control required email" placeholder={ this.state.personalInfo.employee.firstName }/>
             </div>
           </div>
         </div>
@@ -59,14 +59,14 @@ class PersonalSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Middle Name</label>
-              <input id="mName" name="mName" type="text" className="form-control required" placeholder={this.state.personalInfo.employee.personalSummary.middleName}/>
+              <input id="mName" name="mName" type="text" className="form-control required" placeholder={ this.state.personalInfo.employee.personalSummary.middleName }/>
             </div>
           </div>
           
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Last Name</label>
-              <input id="lName" name="lName" type="text" className="form-control" placeholder={this.state.personalInfo.employee.lastName}/>
+              <input id="lName" name="lName" type="text" className="form-control" placeholder={ this.state.personalInfo.employee.lastName }/>
             </div>
           </div>
         </div>
@@ -75,14 +75,14 @@ class PersonalSummary extends React.Component {
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Date of Birth</label>
-              <input id="dob" name="dob" type="text" className="form-control required email" placeholder={this.state.personalInfo.employee.personalSummary.dob}/>
+              <input id="dob" name="dob" type="text" className="form-control required email" placeholder={ this.state.personalInfo.employee.personalSummary.dob }/>
             </div>
           </div>
                 
           <div className="col-lg-6">
             <div className="form-group">
               <label className="label-home">Sex / Gender</label>
-              <input id="gender" name="gender" type="text" className="form-control" placeholder={this.state.personalInfo.employee.personalSummary.gender}/>
+              <input id="gender" name="gender" type="text" className="form-control" placeholder={ this.state.personalInfo.employee.personalSummary.gender }/>
             </div>
           </div>
         </div>
@@ -91,11 +91,9 @@ class PersonalSummary extends React.Component {
   };
 
   render() {
-    return (
-      <>
-        {this.state.loaded ? this.content() : null }
-      </>
-    );
+    return (<>{ this.state.loaded ? this.content() : null }</>);
   };
+
 };
+
 export default PersonalSummary;

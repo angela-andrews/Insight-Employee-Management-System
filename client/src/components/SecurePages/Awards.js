@@ -1,4 +1,4 @@
-import React from 'react';
+import React    from "react";
 import gqlFetch from "../../utils/gqlFetch";
 
 class Awards extends React.Component {
@@ -29,8 +29,8 @@ class Awards extends React.Component {
         }
       }`
     gqlFetch.fetchById(this.state.id, query)
-      .then(res => res.json())
-      .then(res => resolve(res.data.employee.award))
+    .then(res => res.json())
+    .then(res => resolve(res.data.employee.award))
     })
   };    
 
@@ -69,13 +69,13 @@ class Awards extends React.Component {
               </thead>
               <tbody>
                 {this.state.awards.map((element, index) => (
-                  <tr key={element.id}>
-                    <th scope="row">{`${index +1}`}</th>
+                  <tr key={ element.id }>
+                    <th scope="row">{ `${index +1}` }</th>
                     {this.displayImage(element)}
-                    <td>{element.date}</td>
-                    <td>{element.dollarAmount}</td>
-                    <td>{element.reason}</td>
-                    <td>{element.status}</td>
+                    <td>{ element.date }</td>
+                    <td>{ element.dollarAmount }</td>
+                    <td>{ element.reason }</td>
+                    <td>{ element.status }</td>
                   </tr>
                 ))}
               </tbody>
@@ -87,8 +87,9 @@ class Awards extends React.Component {
   };
 
   render() {
-    return(<>{this.state.loaded ? this.content() : null}</>)
-  }
+    return(<>{ this.state.loaded ? this.content() : null }</>)
+  };
+  
 };
 
 export default Awards;

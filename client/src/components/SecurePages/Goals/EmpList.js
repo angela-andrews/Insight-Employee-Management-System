@@ -1,5 +1,5 @@
-import React from 'react';
-import gql from '../../../utils/gqlFetch';
+import React  from "react";
+import gql    from "../../../utils/gqlFetch";
 
 class EmpList extends React.Component {
   state = {
@@ -15,8 +15,7 @@ class EmpList extends React.Component {
     .then(res => res.json())
     .then(res => {
       this.setState({ employeeList: res.data.allEmployees })
-      console.log(res.data.allEmployees)
-    })
+    });
   };
 
   render() {
@@ -34,12 +33,12 @@ class EmpList extends React.Component {
         <tbody>
           {this.state.employeeList.map(employee => {
             return (
-              <tr key={employee.id}>
-              <th scope="row">{employee.id}</th>
-              <td>{employee.firstName}</td>
-              <td>{employee.lastName}</td>
-              <td>{employee.position}</td>
-              <td>{employee.supervisor}</td>
+              <tr key={ employee.id }>
+              <th scope="row">{ employee.id }</th>
+              <td>{ employee.firstName }</td>
+              <td>{ employee.lastName }</td>
+              <td>{ employee.position }</td>
+              <td>{ employee.supervisor }</td>
               </tr>)
           })}
         </tbody>
