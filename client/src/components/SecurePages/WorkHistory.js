@@ -1,4 +1,4 @@
-import React from "react";
+import React    from "react";
 import gqlFetch from "../../utils/gqlFetch";
 
 class WorkHistory extends React.Component {
@@ -33,9 +33,9 @@ class WorkHistory extends React.Component {
         }
       }`
     gqlFetch.fetchById(this.state.id, query)
-      .then(res => res.json())
-      .then(res => resolve(res.data.employee.workHistory))
-    })
+    .then(res => res.json())
+    .then(res => resolve(res.data.employee.workHistory))
+    });
   };
 
   content() {
@@ -43,18 +43,18 @@ class WorkHistory extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            {this.state.workHistory.map(element => (<div key={element.id}>
-              <h4>{element.jobTitle}</h4>
+            {this.state.workHistory.map(element => (<div key={ element.id }>
+              <h4>{ element.jobTitle }</h4>
               <div className="job-title d-flex justify-content-between">
-                <p>{element.companyName}</p>            
-                <p>{element.startDate} - {element.endDate}</p>
-                <p>{element.location}</p>
+                <p>{ element.companyName }</p>            
+                <p>{ element.startDate } - { element.endDate }</p>
+                <p>{ element.location }</p>
               </div>
               <ul>
-                <li>{element.bullet1}</li>
-                <li>{element.bullet2}</li>
-                <li>{element.bullet3}</li>
-                <li>{element.bullet4}</li>
+                <li>{ element.bullet1 }</li>
+                <li>{ element.bullet2 }</li>
+                <li>{ element.bullet3 }</li>
+                <li>{ element.bullet4 }</li>
               </ul>
               <hr />
             </div>))}
@@ -65,12 +65,9 @@ class WorkHistory extends React.Component {
   };
 
   render() {
-    return (
-      <>
-        {this.state.loaded ? this.content() : null}
-      </>
-    );
+    return (<>{ this.state.loaded ? this.content() : null }</>);
   };
+  
 };
 
 
