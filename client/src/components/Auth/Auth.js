@@ -1,14 +1,13 @@
 import React from 'react';
 import auth0 from 'auth0-js';
-import { AUTH_CONFIG } from './authO-variables';
 
 class Auth extends React.Component {
   auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientId,
-    redirectUri: AUTH_CONFIG.callbackUrl,
+    domain:       'insightexcite.auth0.com',
+    clientID:     'aPQmC2cRurJ8DVqo7QDzfcjg7WLthR5T',
+    redirectUri:  'http://localhost:3000/callback',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope:        'openid'
   });
 
   login() {
