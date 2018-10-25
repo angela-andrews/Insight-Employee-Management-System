@@ -5,7 +5,7 @@ class Auth extends React.Component {
   auth0 = new auth0.WebAuth({
     domain:       'insightexcite.auth0.com',
     clientID:     'aPQmC2cRurJ8DVqo7QDzfcjg7WLthR5T',
-    redirectUri:  'http://localhost:3000/callback',
+    redirectUri:  'http://localhost:3000/callback' || 'https://shrouded-dawn-11347.herokuapp.com/callback',
     responseType: 'token id_token',
     scope:        'openid'
   });
